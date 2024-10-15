@@ -1,153 +1,49 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap");
+@font-face {
+    font-family: "Gora-free";
+    src: url("../../assets/fonts/Gora-Free.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
 
-$font-family-nunito: "Nunito", sans-serif;
+@font-face {
+    font-family: "Product-Sans";
+    src: url("../../assets/fonts/productsans.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
 
-$font-weight-bold: 700;
-$font-weight-semibold: 600;
-$font-weight-medium: 500;
-$font-weight-regular: 400;
-
-$line-height: 140%;
-$line-height-small: 120%;
+$font-family-gora: "Gora-free", sans-serif;
+$font-family-productSans: "Product-Sans", sans-serif;
 
 h1 {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-bold;
-    font-size: 3rem;
-    line-height: $line-height-small;
-    text-transform: uppercase;
+    font-family: $font-family-gora;
+    font-size: 104px;
 }
-
+h1.small {
+    font-family: $font-family-gora;
+    font-size: 92px;
+}
 h2 {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-bold;
-    font-size: 2.5rem;
-    line-height: $line-height;
+    font-family: $font-family-gora;
+    font-size: 72px;
 }
-
 h3 {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-semibold;
-    font-size: 2rem;
-    line-height: $line-height;
+    font-family: $font-family-productSans;
+    font-size: 72px;
 }
-
 h4 {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-regular;
-    font-size: 1.5rem;
-    line-height: $line-height;
+    font-family: $font-family-productSans;
+    font-size: 54px;
 }
-h4.medium {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-medium;
-    font-size: 1.5rem;
-    line-height: $line-height;
+p {
+    font-family: $font-family-productSans;
+    font-size: 42px;
 }
-
-h4.semi-bold {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-semibold;
-    font-size: 1.5rem;
-    line-height: $line-height;
+p.text {
+    font-family: $font-family-productSans;
+    font-size: 36px;
 }
-
-h4.bold {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-bold;
-    font-size: 1.5rem;
-    line-height: $line-height;
-}
-
-h5 {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-regular;
-    font-size: 1.25rem;
-    line-height: $line-height;
-}
-
-h5.medium {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-medium;
-    font-size: 1.25rem;
-    line-height: $line-height;
-}
-
-h5.semi-bold {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-semibold;
-    font-size: 1.25rem;
-    line-height: $line-height;
-}
-
-h5.bold {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-bold;
-    font-size: 1.25rem;
-    line-height: $line-height;
-}
-
-h6 {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-regular;
-    font-size: 1.125rem;
-    line-height: $line-height;
-}
-h6.medium {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-medium;
-    font-size: 1.125rem;
-    line-height: $line-height;
-}
-
-h6.semi-bold {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-semibold;
-    font-size: 1.125rem;
-    line-height: $line-height;
-}
-
-h6.bold {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-bold;
-    font-size: 1.125rem;
-    line-height: $line-height;
-}
-
-a.semi-bold {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-semibold;
-    font-size: 1.125rem;
-    line-height: $line-height;
-}
-
-a.medium {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-medium;
-    font-size: 1.125rem;
-    line-height: $line-height;
-}
-a.regular {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-regular;
-    font-size: 0.6875rem;
-    line-height: $line-height;
-}
-p.medium {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-medium;
-    font-size: 1.125rem;
-    line-height: $line-height;
-}
-p.bold {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-bold;
-    font-size: 1.125rem;
-    line-height: $line-height;
-}
-p.regular {
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-regular;
-    font-size: 1.125rem;
-    line-height: $line-height;
+p.small {
+    font-family: $font-family-productSans;
+    font-size: 24px;
 }

@@ -1,10 +1,10 @@
 import React from "react";
-import { Button } from "../../ui/buttons/Button";
+import { About } from "../../modules/about/About";
 
 export const HomePage = () => {
     return (
         <div>
-            <Button text="Новости" variant="primary" />
+            <About />
         </div>
     );
 };

@@ -23,8 +23,7 @@ export const Typography = ({
         h2: "h2",
         h3: "h3",
         h4: "h4",
-        h5: "h5",
-        h6: "h6",
+        p: "p",
     };
 
     const classNameGenerated = [styles[variant], styles[weight], className]
@@ -32,7 +31,7 @@ export const Typography = ({
         .join(" ")
         .trim();
 
-    const TagName = Tags[variant] || "p";
+    const TagName = Tags[variant];
     return (
         <TagName id={id} className={classNameGenerated} href={href} {...props}>
             {!truncate ? children : truncateString(children, truncate)}

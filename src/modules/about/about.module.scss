@@ -1,0 +1,19 @@
+@import "../../app/styles/colors.module.scss";
+.title {
+    color: $black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    width: 100%;
+    margin-bottom: 120px;
+}
+.about {
+    color: $black;
+}
+.lineWrapper {
+    padding: 40px 0;
+}
+.goalText {
+    text-align: center;
+}
