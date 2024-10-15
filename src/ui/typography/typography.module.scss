@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap");
+
+$font-family-nunito: "Nunito", sans-serif;
+
+$font-weight-bold: 700;
+$font-weight-semibold: 600;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+
+$line-height: 140%;
+$line-height-small: 120%;
+
+h1 {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-bold;
+    font-size: 3rem;
+    line-height: $line-height-small;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-bold;
+    font-size: 2.5rem;
+    line-height: $line-height;
+}
+
+h3 {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-semibold;
+    font-size: 2rem;
+    line-height: $line-height;
+}
+
+h4 {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-regular;
+    font-size: 1.5rem;
+    line-height: $line-height;
+}
+h4.medium {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-medium;
+    font-size: 1.5rem;
+    line-height: $line-height;
+}
+
+h4.semi-bold {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-semibold;
+    font-size: 1.5rem;
+    line-height: $line-height;
+}
+
+h4.bold {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-bold;
+    font-size: 1.5rem;
+    line-height: $line-height;
+}
+
+h5 {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-regular;
+    font-size: 1.25rem;
+    line-height: $line-height;
+}
+
+h5.medium {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-medium;
+    font-size: 1.25rem;
+    line-height: $line-height;
+}
+
+h5.semi-bold {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-semibold;
+    font-size: 1.25rem;
+    line-height: $line-height;
+}
+
+h5.bold {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-bold;
+    font-size: 1.25rem;
+    line-height: $line-height;
+}
+
+h6 {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-regular;
+    font-size: 1.125rem;
+    line-height: $line-height;
+}
+h6.medium {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-medium;
+    font-size: 1.125rem;
+    line-height: $line-height;
+}
+
+h6.semi-bold {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-semibold;
+    font-size: 1.125rem;
+    line-height: $line-height;
+}
+
+h6.bold {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-bold;
+    font-size: 1.125rem;
+    line-height: $line-height;
+}
+
+a.semi-bold {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-semibold;
+    font-size: 1.125rem;
+    line-height: $line-height;
+}
+
+a.medium {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-medium;
+    font-size: 1.125rem;
+    line-height: $line-height;
+}
+a.regular {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-regular;
+    font-size: 0.6875rem;
+    line-height: $line-height;
+}
+p.medium {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-medium;
+    font-size: 1.125rem;
+    line-height: $line-height;
+}
+p.bold {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-bold;
+    font-size: 1.125rem;
+    line-height: $line-height;
+}
+p.regular {
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-regular;
+    font-size: 1.125rem;
+    line-height: $line-height;
+}
