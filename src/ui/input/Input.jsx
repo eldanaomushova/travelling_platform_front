@@ -1,37 +1,57 @@
-import React from "react";
+import { Typography } from "@ui/typography/Typography";
+import React, { useState } from "react";
 import styles from "./input.module.scss";
-import { Typography } from "../typography/Typography";
-import { usePhoneInput } from "./UsePhoneInput";
 
 export const Input = ({
     type = "text",
-    value: initialValue,
     name,
-    placeholder = "Введите номер телефона",
+    placeholder,
     error = false,
     onChange,
     className,
+    value = "",
+    errorMsg, // Keep this prop name consistent
 }) => {
-    const { value, validationError, isFocused, handleChange, handleFocus, handleBlur } =
-        usePhoneInput(initialValue, onChange);
+    const [isFocused, setIsFocused] = useState(false);
+    const [inputValue, setInputValue] = useState(value);
 
-    const inputClasses = `${styles.input} ${className} ${validationError || error ? styles.inputError : ""}`;
-    const isPlaceholderVisible = !value && !isFocused;
+    const handleFocus = () => setIsFocused(true);
+    const handleBlur = () => {
+        if (!inputValue) {
+            setIsFocused(false);
+        }
+    };
+
+    const handleChange = (e) => {
+        setInputValue(e.target.value);
+        if (onChange) {
+            onChange(e);
+        }
+    };
+
+    const isPlaceholderVisible = !inputValue && !isFocused;
+    const inputClasses = `${styles.input} ${className} ${error ? styles.error : ""}`;
 
     return (
-        <div className={styles.inputWrapper}>
+        <div className={styles.inputContainer}>
             <input
                 type={type}
-                value={value}
                 name={name}
+                value={inputValue}
                 onChange={handleChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 className={inputClasses}
+                placeholder=""
             />
             {isPlaceholderVisible && (
-                <Typography variant="h6" className={styles.placeholder}>
+                <Typography variant="p" weight="small" className={styles.placeholder}>
                     {placeholder}
+                </Typography>
+            )}
+            {error && errorMsg && (
+                <Typography variant="p" weight="extraSmall" className={styles.errorMessage}>
+                    {errorMsg}
                 </Typography>
             )}
         </div>

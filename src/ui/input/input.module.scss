@@ -1,9 +1,39 @@
-.inputWrapper {
+.inputContainer {
+    position: relative;
+
     input {
-        border-bottom: 2px solid #000;
+        height: 60px;
+        min-width: 600px;
+        align-self: stretch;
+        flex-grow: 0;
+        display: flex;
         padding: 10px 10px 10px 40px;
-        width: 760px;
-        height: 80px;
-        cursor: pointer;
+        border: none;
+        border-bottom: solid 2px var(--black);
+        background-color: var(--input-background);
+        font-family: "Product-sans", sans-serif;
+        font-size: 24px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .placeholder {
+        position: absolute;
+        left: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--black);
+        pointer-events: none;
+        transition: opacity 0.2s ease-in-out;
+    }
+    .error {
+        background-color: var(--input-error) !important;
+    }
+    .errorMessage {
+        color: var(--red);
+        margin-left: 40px;
+        position: absolute;
     }
 }

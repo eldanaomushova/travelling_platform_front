@@ -1,25 +1,39 @@
 import React from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./button.module.scss";
-import { Typography } from "../../ui/typography/Typography";
+import { Typography } from "@ui/typography/Typography";
 
-export const Button = ({ text, icon, variant, disabled, onClick, children }) => {
+export const Button = ({
+    text,
+    icon,
+    variant,
+    disabled = false,
+    onClick,
+    children,
+    width,
+    height,
+    padding,
+    className,
+}) => {
     return (
         <button
-            className={classNames(styles.button, styles[variant], {
+            className={classNames(styles.button, styles[variant], className, {
                 [styles.disabled]: disabled,
             })}
             onClick={!disabled ? onClick : undefined}
             disabled={disabled}
+            style={{ width, height, padding }}
         >
-            {variant === "icon" ? (
-                <img src={icon} alt="Button Icon" className={styles.arrowRight} />
-            ) : (
-                <Typography variant="h5" weight="semi-bold" className={styles.buttonText}>
+            <div className={styles.buttonContent}>
+                <Typography variant="p" weight="small" className={styles.buttonText}>
                     {text}
                 </Typography>
-            )}
+                {icon && variant === "icon" && (
+                    <div className={styles.iconContainer}>
+                        <img src={icon} alt="Button Icon" className={styles.arrowRight} />
+                    </div>
+                )}
+            </div>
             {children}
         </button>
     );

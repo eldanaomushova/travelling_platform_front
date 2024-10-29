@@ -17,19 +17,23 @@ $font-family-productSans: "Product-Sans", sans-serif;
 
 h1 {
     font-family: $font-family-gora;
-    font-size: 104px;
+    font-size: 90px;
+    cursor: default;
 }
 h1.small {
     font-family: $font-family-gora;
-    font-size: 92px;
+    font-size: 91px;
+    cursor: default;
 }
 h2 {
     font-family: $font-family-gora;
-    font-size: 72px;
+    font-size: 58px;
+    cursor: default;
 }
 h3 {
     font-family: $font-family-productSans;
     font-size: 72px;
+    cursor: default;
 }
 h4 {
     font-family: $font-family-productSans;
@@ -46,4 +50,9 @@ p.text {
 p.small {
     font-family: $font-family-productSans;
     font-size: 24px;
+    cursor: default;
+}
+p.extraSmall {
+    font-family: $font-family-productSans;
+    font-size: 16px;
 }

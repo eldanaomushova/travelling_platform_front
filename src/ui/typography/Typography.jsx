@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Typography.module.scss";
+import styles from "./typography.module.scss";
 
 const truncateString = (str, length) => {
     if (str.length > length) {

@@ -1,0 +1,28 @@
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.firstRow {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.card {
+    flex: 0 0 calc(50% - 10px);
+}
+
+.card:nth-child(n + 3) {
+    flex: 0 0 calc(33.33% - 10px);
+}
+
+.title2 {
+    text-align: center;
+}
+
+.lineWrapper {
+    padding: 40px 0;
+}

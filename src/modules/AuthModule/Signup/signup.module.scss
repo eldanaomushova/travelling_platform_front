@@ -1,0 +1,68 @@
+.signupContainer {
+    display: flex;
+    justify-content: space-between;
+    overflow-y: hidden;
+    height: 100vh;
+    .signupWrapper {
+        margin: 0 100px;
+        .welcomeText {
+            max-width: 500px;
+            padding: 20px 0;
+        }
+        .inputContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            .separatorContainer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 10px 0;
+                .line {
+                    flex: 1;
+                    height: 2px;
+                    background-color: var(--black);
+                    margin: 0 10px;
+                }
+                .orText {
+                    white-space: nowrap;
+                }
+            }
+            .alreadyBtn {
+                margin: 20px auto;
+            }
+        }
+    }
+    .imgWrapper {
+        img {
+            height: 100%;
+            overflow-y: hidden;
+            width: 100%;
+        }
+    }
+    .logoContainer {
+        height: 70px;
+        align-self: stretch;
+        flex-grow: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 40px;
+        padding: 10px 0;
+        margin-left: -80px;
+        .logoWrapper {
+            align-self: stretch;
+            flex-grow: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+            .logo {
+                height: 50px;
+                flex-grow: 0;
+                margin-right: -20px;
+            }
+        }
+    }
+}

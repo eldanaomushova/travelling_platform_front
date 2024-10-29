@@ -1,0 +1,29 @@
+.cardWrapper {
+    max-width: 460px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    border: solid 2px var(--black);
+    background-color: var(--white);
+    margin-top: 100px;
+    .imageWrapper {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .imageClass {
+        width: 100%;
+        flex-grow: 0;
+        height: max-content;
+    }
+    .textWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+}

@@ -5,18 +5,18 @@
     "type": "module",
     "scripts": {
         "prettier": "prettier",
-        "start": "vite",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "prepare": "husky install",
         "lint:fix": "eslint \"**/*.{js,jsx}\" --fix",
-        "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
-        "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
+        "lint": "eslint  \"**/*.{js,jsx,ts,tsx}\"",
+        "format": "prettier --write .",
         "dev": "vite",
         "build": "vite build",
         "serve": "vite preview"
     },
     "dependencies": {
+        "firebase": "^11.0.1",
         "prop-types": "^15.8.1",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
