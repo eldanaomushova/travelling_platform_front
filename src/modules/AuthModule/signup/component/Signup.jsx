@@ -3,18 +3,18 @@ import { auth, provider } from "@utils/config/Config";
 import { signInWithPopup } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../../assets/logo/logo.webp";
+import logo from "../../../../assets/logo/logo.webp";
 import styles from "./signup.module.scss";
 import { PATH } from "@utils/constants/Constants";
-import signupPhoto from "../../../assets/images/signupImg.jpeg";
+import signupPhoto from "../../../../assets/images/signupImg.jpeg";
 import { Typography } from "@ui/typography/Typography";
 import { Input } from "@ui/input/Input";
 import { Button } from "@ui/buttons/Button";
 import { ArrowIcon } from "@assets/icons/desktop/ArrowIcon";
 import { GoogleIcon } from "@assets/icons/desktop/GoogleIcon";
+import { useSignupStore } from "../store/useSignupStore";
 
 export const Signup = () => {
-    const [setUser] = useState(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -23,30 +23,31 @@ export const Signup = () => {
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [passwordPatternErr, setPasswordPatternErr] = useState(false);
+    const { data, register } = useSignupStore();
 
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) => {
             const currentUser = result.user;
-            setUser(currentUser);
             localStorage.setItem("email", currentUser.email);
             navigate(PATH.home);
         });
     };
 
     useEffect(() => {
-        const email = localStorage.getItem("email");
-        if (email) {
+        const emailFromStorage = localStorage.getItem("email");
+        if (emailFromStorage) {
             navigate(PATH.home);
         }
     }, [navigate]);
 
-    const handleSignup = () => {
+    const handleSignup = async () => {
         setEmailError(false);
         setPasswordError(false);
         setPasswordsMatch(true);
         setPasswordPatternErr(false);
+
         if (!email) {
             setEmailError(true);
         }
@@ -64,7 +65,11 @@ export const Signup = () => {
             return;
         }
 
-        console.log("Signing up with:", email, password);
+        register(email, password);
+        if (data) {
+            navigate(PATH.home);
+        }
+        console.log(email, password);
     };
     const handleBack = () => {
         navigate(PATH.home);

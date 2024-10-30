@@ -10,7 +10,7 @@ export const Input = ({
     onChange,
     className,
     value = "",
-    errorMsg, // Keep this prop name consistent
+    errorMsg,
 }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [inputValue, setInputValue] = useState(value);
