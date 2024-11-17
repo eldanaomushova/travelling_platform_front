@@ -17,7 +17,6 @@ export const useSignupStore = create((set) => ({
                 },
                 body: JSON.stringify({ email: email, password: password }),
             });
-            console.log(response);
 
             if (!response.ok) {
                 const errorData = await response.json();

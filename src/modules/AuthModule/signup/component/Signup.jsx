@@ -64,13 +64,14 @@ export const Signup = () => {
         if (!email || !password || password !== confirmPassword || !isPasswordValid) {
             return;
         }
-
-        register(email, password);
-        if (data) {
+        try {
+            const currentUser = register(email, password);
+            localStorage.setItem("email", currentUser.email);
             navigate(PATH.home);
+        } catch (error) {
+            console.error("Registration failed:", error);
         }
-        console.log(email, password);
-    };
+    }
     const handleBack = () => {
         navigate(PATH.home);
     };

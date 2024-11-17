@@ -3,15 +3,16 @@ import { auth, provider } from "@utils/config/Config";
 import { signInWithPopup } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../../assets/logo/logo.webp";
-import styles from "../signup/component/signup.module.scss";
+import logo from "@assets/logo/logo.webp";
+import styles from "../../signup/component/signup.module.scss";
 import { PATH } from "@utils/constants/Constants";
-import signupPhoto from "../../../assets/images/signupImg.jpeg";
+import signupPhoto from "@assets/images/signupImg.jpeg";
 import { Typography } from "@ui/typography/Typography";
 import { Input } from "@ui/input/Input";
 import { Button } from "@ui/buttons/Button";
 import { ArrowIcon } from "@assets/icons/desktop/ArrowIcon";
 import { GoogleIcon } from "@assets/icons/desktop/GoogleIcon";
+import { useLoginStore } from "../store/useLoginStore";
 
 export const Login = () => {
     const [setUser] = useState(null);
@@ -21,6 +22,8 @@ export const Login = () => {
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [passwordPatternErr, setPasswordPatternErr] = useState(false);
+    const [loginError, setLoginError] = useState(""); // For handling login errors from API
+    const { login } = useLoginStore();
 
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
@@ -40,10 +43,12 @@ export const Login = () => {
         }
     }, [navigate]);
 
-    const handleSignup = () => {
+    const handleSignup = async () => {
         setEmailError(false);
         setPasswordError(false);
         setPasswordPatternErr(false);
+        setLoginError(""); // Clear any previous error
+
         if (!email) {
             setEmailError(true);
         }
@@ -57,15 +62,27 @@ export const Login = () => {
         if (!email || !password || !isPasswordValid) {
             return;
         }
-        console.log("Logging in with:", email, password);
+
+        try {
+            const currentUser = await login(email, password); // Make sure the login function is awaited
+            if (currentUser) {
+                localStorage.setItem("email", currentUser.email);
+                navigate(PATH.home);
+            }
+        } catch (error) {
+            // If login fails, set the error message
+            setLoginError(error.message);
+        }
     };
 
     const handleBack = () => {
         navigate(PATH.home);
     };
+
     const handleSignupPage = () => {
         navigate(PATH.signup);
     };
+
     return (
         <div className={styles.signupContainer}>
             <div className={styles.signupWrapper}>
@@ -108,6 +125,11 @@ export const Login = () => {
                                   : ""
                         }
                     />
+                    {loginError && (
+                        <Typography variant="p" className={styles.errorMessage}>
+                            {loginError}
+                        </Typography>
+                    )}
                     <Button
                         variant="secondary"
                         text="Войти"

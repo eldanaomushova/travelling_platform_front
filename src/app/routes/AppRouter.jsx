@@ -5,7 +5,7 @@ import { Signup } from "@modules/authModule/signup/component/Signup";
 import { PrivateRoute } from "@utils/providers/PrivateRoute";
 import { HomePage } from "@pages/homePage/HomePage";
 import { PlacesPage } from "@pages/places/PlacesPage";
-import { Login } from "@modules/AuthModule/Login/Login";
+import { Login } from "@modules/authModule/login/components/Login";
 
 export const AppRouter = (user) => {
     return createBrowserRouter([
