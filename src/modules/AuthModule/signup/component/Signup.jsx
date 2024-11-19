@@ -1,7 +1,7 @@
 import { BackArrowIcon } from "@assets/icons/desktop/BackArrowIcon";
 import { auth, provider } from "@utils/config/Config";
 import { signInWithPopup } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../../../assets/logo/logo.webp";
 import styles from "./signup.module.scss";
@@ -26,21 +26,17 @@ export const Signup = () => {
     const { data, register } = useSignupStore();
 
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-    const signInWithGoogle = () => {
-        signInWithPopup(auth, provider).then((result) => {
+    const signInWithGoogle = async () => {
+        try {
+            const result = await signInWithPopup(auth, provider);
             const currentUser = result.user;
+            setUser(currentUser);
             localStorage.setItem("email", currentUser.email);
             navigate(PATH.home);
-        });
-    };
-
-    useEffect(() => {
-        const emailFromStorage = localStorage.getItem("email");
-        if (emailFromStorage) {
-            navigate(PATH.home);
+        } catch (error) {
+            console.error("Google sign-in error:", error);
         }
-    }, [navigate]);
+    };
 
     const handleSignup = async () => {
         setEmailError(false);
@@ -61,17 +57,36 @@ export const Signup = () => {
         if (!isPasswordValid) {
             setPasswordPatternErr(true);
         }
+
         if (!email || !password || password !== confirmPassword || !isPasswordValid) {
             return;
         }
+
         try {
-            const currentUser = register(email, password);
-            localStorage.setItem("email", currentUser.email);
-            navigate(PATH.home);
+            const currentUser = await register(email, password, navigate);
+
+            if (currentUser?.email && currentUser?.password) {
+                localStorage.setItem("email", currentUser.email);
+                navigate(PATH.home);
+            } else {
+                navigate(PATH.login);
+            }
         } catch (error) {
-            console.error("Registration failed:", error);
+            navigate(PATH.login);
         }
-    }
+    };
+
+    <Button
+        variant="secondary"
+        text="Регистрация"
+        onClick={handleSignup}
+        width="600px"
+        height="60px"
+        padding="0 40px"
+    >
+        <ArrowIcon color="var(--black)" />
+    </Button>;
+
     const handleBack = () => {
         navigate(PATH.home);
     };

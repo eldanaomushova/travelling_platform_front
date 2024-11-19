@@ -15,15 +15,15 @@ import { GoogleIcon } from "@assets/icons/desktop/GoogleIcon";
 import { useLoginStore } from "../store/useLoginStore";
 
 export const Login = () => {
-    const [setUser] = useState(null);
+    const [user, setUser] = useState(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [passwordPatternErr, setPasswordPatternErr] = useState(false);
-    const [loginError, setLoginError] = useState(""); // For handling login errors from API
-    const { login } = useLoginStore();
+    const [loginError, setLoginError] = useState("");
+    const { login, error, token, initializeToken } = useLoginStore();
 
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
@@ -39,15 +39,18 @@ export const Login = () => {
     useEffect(() => {
         const email = localStorage.getItem("email");
         if (email) {
-            navigate(PATH.home);
+            navigate(PATH.home, { replace: true });
         }
-    }, [navigate]);
+    }, []);
+    useEffect(() => {
+        initializeToken();
+    }, [initializeToken]);
 
-    const handleSignup = async () => {
+    const handleLogin = async () => {
         setEmailError(false);
         setPasswordError(false);
         setPasswordPatternErr(false);
-        setLoginError(""); // Clear any previous error
+        setLoginError("");
 
         if (!email) {
             setEmailError(true);
@@ -64,14 +67,15 @@ export const Login = () => {
         }
 
         try {
-            const currentUser = await login(email, password); // Make sure the login function is awaited
+            const currentUser = await login(email, password);
             if (currentUser) {
                 localStorage.setItem("email", currentUser.email);
+                const storedToken = localStorage.getItem("authToken");
+                console.log(storedToken);
                 navigate(PATH.home);
             }
         } catch (error) {
-            // If login fails, set the error message
-            setLoginError(error.message);
+            setLoginError(error.message || "Login failed");
         }
     };
 
@@ -103,10 +107,20 @@ export const Login = () => {
                         type="email"
                         name="email"
                         placeholder="Введите email"
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => {
+                            setEmail(e.target.value);
+                            setEmailError(false);
+                            setLoginError("");
+                        }}
                         className={styles.input}
-                        error={emailError}
-                        errorMsg={emailError ? "Email не может быть пустым" : ""}
+                        error={emailError || loginError}
+                        errorMsg={
+                            loginError
+                                ? "Неправильный email или пароль"
+                                : emailError
+                                  ? "Email не может быть пустым"
+                                  : ""
+                        }
                     />
                     <Input
                         type="password"
@@ -115,25 +129,24 @@ export const Login = () => {
                         onChange={(e) => {
                             setPassword(e.target.value);
                             setPasswordPatternErr(false);
+                            setLoginError("");
                         }}
-                        error={passwordError || passwordPatternErr}
+                        error={passwordError || passwordPatternErr || loginError}
                         errorMsg={
-                            passwordPatternErr
-                                ? "Пароль: минимум 8 символов, включая загл. и стр. буквы, цифры."
-                                : passwordError
-                                  ? "Пароль не может быть пустым"
-                                  : ""
+                            loginError
+                                ? "Неправильный email или пароль"
+                                : passwordPatternErr
+                                  ? "Пароль: минимум 8 символов, включая загл. и стр. буквы, цифры."
+                                  : passwordError
+                                    ? "Пароль не может быть пустым"
+                                    : ""
                         }
                     />
-                    {loginError && (
-                        <Typography variant="p" className={styles.errorMessage}>
-                            {loginError}
-                        </Typography>
-                    )}
+
                     <Button
                         variant="secondary"
                         text="Войти"
-                        onClick={handleSignup}
+                        onClick={handleLogin}
                         width="600px"
                         height="60px"
                         padding="0 40px"

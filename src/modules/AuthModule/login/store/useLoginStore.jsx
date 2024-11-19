@@ -7,6 +7,7 @@ const ENDPOINTS = {
 export const useLoginStore = create((set) => ({
     data: null,
     error: null,
+    token: null,
 
     login: async (email, password) => {
         try {
@@ -20,7 +21,9 @@ export const useLoginStore = create((set) => ({
 
             if (response.ok) {
                 const data = await response.json();
-                set({ data, error: null });
+                set({ data, error: null, token: data.token });
+
+                localStorage.setItem("authToken", data.token);
                 return data;
             } else {
                 const errorData = await response.json();
@@ -30,6 +33,18 @@ export const useLoginStore = create((set) => ({
         } catch (error) {
             set({ error: error.message || "Login failed" });
             throw error;
+        }
+    },
+
+    logout: () => {
+        set({ data: null, token: null, error: null });
+        localStorage.removeItem("authToken");
+    },
+
+    initializeToken: () => {
+        const storedToken = localStorage.getItem("authToken");
+        if (storedToken) {
+            set({ token: storedToken });
         }
     },
 }));

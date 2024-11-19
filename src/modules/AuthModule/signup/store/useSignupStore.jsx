@@ -1,3 +1,5 @@
+import { PATH } from "@utils/constants/Constants";
+import { useNavigate } from "react-router-dom";
 import { create } from "zustand";
 
 const ENDPOINTS = {
@@ -8,25 +10,33 @@ export const useSignupStore = create((set) => ({
     data: null,
     error: null,
 
-    register: async (email, password) => {
+    register: async (email, password, navigate) => {
         try {
             const response = await fetch(ENDPOINTS.signup, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email: email, password: password }),
+                body: JSON.stringify({ email, password }),
             });
+
+            if (response.status === 409) {
+                navigate(PATH.login);
+                return;
+            }
 
             if (!response.ok) {
                 const errorData = await response.json();
                 set({ error: errorData });
                 throw new Error("Registration failed");
             }
+            if (response.ok) {
+                navigate(PATH.home);
+                return { email, password };
+            }
 
             const data = await response.json();
             set({ data, error: null });
-            console.log(data);
             return data;
         } catch (error) {
             set({ error: error.message || "Registration failed" });
