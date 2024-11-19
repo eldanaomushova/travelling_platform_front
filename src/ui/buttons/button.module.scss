@@ -1,6 +1,26 @@
 .button {
     cursor: pointer;
 }
+.primary {
+    height: 68px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 40px;
+    border-radius: 100px;
+    border: solid 1px var(--black);
+    background-color: var(--white);
+    &:hover {
+        cursor: pointer;
+
+        * {
+            cursor: pointer;
+        }
+    }
+}
 .secondary {
     display: flex;
     justify-content: space-between;
@@ -13,6 +33,13 @@
     h4 {
         letter-spacing: -2.7px;
         color: var(--black);
+    }
+    &:hover {
+        cursor: pointer;
+
+        * {
+            cursor: pointer;
+        }
     }
 }
 .google {

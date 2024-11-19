@@ -6,4 +6,6 @@ export const PATH = {
     places: "/places",
     signup: "/signup",
     login: "/login",
+    news: "/news",
+    tours: "/tours",
 };

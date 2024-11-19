@@ -1,0 +1,31 @@
+.mainBlockWrapper {
+    .title {
+        margin-top: 30px;
+    }
+    .text2Wrapper {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1000px;
+    }
+    .text {
+        width: 250px;
+        margin-top: 30px;
+    }
+
+    .image {
+        background-size: cover;
+        background-position: center;
+        background-image: url("@assets/images/mainblockImg.png");
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 120px;
+        height: 445px;
+        position: relative;
+    }
+    .buttonPrimary {
+        position: absolute;
+        top: 75%;
+        left: 5%;
+    }
+}

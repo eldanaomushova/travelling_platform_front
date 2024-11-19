@@ -1,0 +1,54 @@
+.headerContainer {
+    height: 113px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    .logoContainer {
+        height: 70px;
+        align-self: stretch;
+        flex-grow: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 40px;
+        padding: 10px;
+        margin: auto 0;
+        .logoWrapper {
+            align-self: stretch;
+            flex-grow: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+            .logo {
+                height: 60px;
+                flex-grow: 0;
+                margin-right: -20px;
+            }
+        }
+    }
+    .buttonsWrapper {
+        width: 664px;
+        height: 88px;
+        flex-grow: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+        .activeButton {
+            background-color: var(--black);
+            border: solid 1px var(--black);
+            color: var(--white);
+        }
+    }
+    .buttonPrimary {
+        margin-right: 20px;
+    }
+}
