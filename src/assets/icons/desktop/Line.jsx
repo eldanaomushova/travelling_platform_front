@@ -2,7 +2,7 @@ export const Line = (props) => {
     return (
         <svg
             className={props.className}
-            width="1440"
+            width="1340"
             height="133"
             viewBox="0 0 1840 133"
             fill="none"

@@ -1,4 +1,4 @@
-import { BASE_URL } from "@utils/constants/Constants";
+import { BASE_URL } from "@utils/Constants/Constants";
 import axios from "axios";
 
 export const requester = axios.create({

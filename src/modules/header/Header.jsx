@@ -30,8 +30,8 @@ export const Header = () => {
                         location.pathname === PATH.news ? styles.activeButton : styles.button
                     }
                     variant="primary"
-                    text="Новости"
-                    onClick={() => handleNavigation(PATH.news)}
+                    text="Локации"
+                    onClick={() => handleNavigation(PATH.landmarks)}
                     width="200px"
                     height="60px"
                     padding="0 40px"
@@ -61,9 +61,9 @@ export const Header = () => {
             </div>
             <Button
                 variant="secondary"
-                text="Мой тур план"
-                onClick={() => handleNavigation(PATH.news)}
-                width="260px"
+                text="Вход/Регистрация"
+                onClick={() => handleNavigation(PATH.signup)}
+                width="300px"
                 height="60px"
                 padding="0 40px"
                 className={styles.buttonPrimary}

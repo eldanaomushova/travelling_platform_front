@@ -1,23 +1,51 @@
 .cardWrapper {
-    max-width: 460px;
+    max-width: 430px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    padding: 20px;
     border: solid 2px var(--black);
     background-color: var(--white);
+    border-radius: 30px;
+
     .datalink {
         display: flex;
         justify-content: space-between;
     }
     .text {
-        width: 300px;
         padding: 20px 0;
     }
     .imageClass {
         width: 100%;
         flex-grow: 0;
+        border-radius: 30px 30px 0 0;
+    }
+    .info {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        .datalink {
+            display: flex;
+            justify-content: space-between;
+            .dataText {
+                max-width: 200px;
+            }
+        }
+        .button {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 22px;
+            border: none;
+            border-top: solid 2px var(--black);
+            background-color: var(--button-secondary);
+            height: 62px;
+            border-radius: 20px;
+        }
     }
 }

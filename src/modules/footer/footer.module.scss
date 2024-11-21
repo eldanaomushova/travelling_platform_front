@@ -1,0 +1,35 @@
+.footerContainer {
+    height: 113px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    .logoContainer {
+        height: 70px;
+        align-self: stretch;
+        flex-grow: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 40px;
+        padding: 10px;
+        margin: auto 0;
+        .logoWrapper {
+            align-self: stretch;
+            flex-grow: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+            .logo {
+                height: 60px;
+                flex-grow: 0;
+                margin-right: -20px;
+            }
+        }
+    }
+}

@@ -23,7 +23,7 @@ export const Signup = () => {
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [passwordPatternErr, setPasswordPatternErr] = useState(false);
-    const { data, register } = useSignupStore();
+    const { register } = useSignupStore();
 
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     const signInWithGoogle = async () => {

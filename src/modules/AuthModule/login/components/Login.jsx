@@ -23,7 +23,7 @@ export const Login = () => {
     const [passwordError, setPasswordError] = useState(false);
     const [passwordPatternErr, setPasswordPatternErr] = useState(false);
     const [loginError, setLoginError] = useState("");
-    const { login, error, token, initializeToken } = useLoginStore();
+    const { login, initializeToken } = useLoginStore();
 
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 

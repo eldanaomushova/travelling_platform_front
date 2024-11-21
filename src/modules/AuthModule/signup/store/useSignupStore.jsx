@@ -1,5 +1,4 @@
 import { PATH } from "@utils/constants/Constants";
-import { useNavigate } from "react-router-dom";
 import { create } from "zustand";
 
 const ENDPOINTS = {

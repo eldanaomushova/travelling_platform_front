@@ -3,8 +3,9 @@ import { PATH } from "@utils/constants/Constants";
 import { Layout } from "@app/layout/Layout";
 import { Signup } from "@modules/authModule/signup/component/Signup";
 import { HomePage } from "@pages/homePage/HomePage";
-import { PlacesPage } from "@pages/places/PlacesPage";
 import { Login } from "@modules/authModule/login/components/Login";
+import { TourPage } from "@pages/tourPage/TourPage";
+import { LandmarkPage } from "@pages/landmarkPage/LandmarkPage";
 
 export const AppRouter = (user) => {
     return createBrowserRouter([
@@ -18,8 +19,12 @@ export const AppRouter = (user) => {
                     element: <HomePage />,
                 },
                 {
-                    path: PATH.places,
-                    element: <PlacesPage />,
+                    path: PATH.tours,
+                    element: <TourPage />,
+                },
+                {
+                    path: PATH.landmarks,
+                    element: <LandmarkPage />,
                 },
                 {
                     path: PATH.notFound,
