@@ -15,7 +15,6 @@ import { GoogleIcon } from "@assets/icons/desktop/GoogleIcon";
 import { useLoginStore } from "../store/useLoginStore";
 
 export const Login = () => {
-    const [user, setUser] = useState(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -30,7 +29,6 @@ export const Login = () => {
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) => {
             const currentUser = result.user;
-            setUser(currentUser);
             localStorage.setItem("email", currentUser.email);
             navigate(PATH.home);
         });
@@ -39,7 +37,8 @@ export const Login = () => {
     useEffect(() => {
         const email = localStorage.getItem("email");
         if (email) {
-            navigate(PATH.home, { replace: true });
+            window.alert("You are already logged in!");
+            navigate(-2);
         }
     }, []);
     useEffect(() => {
@@ -70,8 +69,6 @@ export const Login = () => {
             const currentUser = await login(email, password);
             if (currentUser) {
                 localStorage.setItem("email", currentUser.email);
-                const storedToken = localStorage.getItem("authToken");
-                console.log(storedToken);
                 navigate(PATH.home);
             }
         } catch (error) {

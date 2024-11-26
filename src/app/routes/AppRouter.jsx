@@ -6,13 +6,14 @@ import { HomePage } from "@pages/homePage/HomePage";
 import { Login } from "@modules/authModule/login/components/Login";
 import { TourPage } from "@pages/tourPage/TourPage";
 import { LandmarkPage } from "@pages/landmarkPage/LandmarkPage";
+import { AboutPlacePage } from "@pages/aboutPlacePage/AboutPlacePage";
 
 export const AppRouter = (user) => {
     return createBrowserRouter([
         {
             path: PATH.home,
             element: <Layout />,
-            errorElement: <div>Something went wrong!</div>,
+            errorElement: <div>Ошибка сервера!</div>,
             children: [
                 {
                     path: PATH.home,
@@ -25,6 +26,10 @@ export const AppRouter = (user) => {
                 {
                     path: PATH.landmarks,
                     element: <LandmarkPage />,
+                },
+                {
+                    path: `${PATH.landmarks}/:id`,
+                    element: <AboutPlacePage />,
                 },
                 {
                     path: PATH.notFound,

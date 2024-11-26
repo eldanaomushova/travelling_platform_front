@@ -6,18 +6,14 @@ const ENDPOINTS = {
 
 export const useTourStore = create((set) => ({
     data: null,
-    loading: false,
-    error: null,
 
     fetchData: async () => {
-        set({ loading: true, error: null });
         try {
             const response = await fetch(ENDPOINTS.tourInfo);
             const data = await response.json();
-            set({ data: data, loading: false });
+            set({ data: data });
         } catch (error) {
-            set({ error: error.message, loading: false });
-            console.error("Fetch Error:", error);
+            console.error("Fetch Error");
         }
     },
 }));

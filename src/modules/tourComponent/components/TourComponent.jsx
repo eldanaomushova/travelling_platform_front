@@ -4,6 +4,7 @@ import { Container } from "@ui/container/Container";
 import { Card } from "@ui/cards/smallCard/Card";
 import { Typography } from "@ui/typography/Typography";
 import { useTourStore } from "../store/useTourStore";
+import { useNavigate } from "react-router-dom";
 
 const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -11,40 +12,30 @@ const formatDate = (dateString) => {
 };
 
 export const TourComponent = () => {
-    const { data, fetchData, loading, error } = useTourStore();
-
+    const { data, fetchData } = useTourStore();
+    const navigate = useNavigate();
     useEffect(() => {
         fetchData();
     }, [fetchData]);
 
-    const handleBook = async (tourId) => {
-        try {
-            const bookingData = { email: userEmail, tourId };
-            const response = await requester.post("/api/v1/book", bookingData);
-            console.log("Booking successful:", response.data);
-            alert("Booking successful!");
-        } catch (error) {
-            console.error("Error booking tour:", error);
-            alert("Failed to book the tour. Please try again.");
-        }
+    const handleClick = (id, planName, startDate, endDate, price) => {
+        navigate(`/landmarks/${id}`, {
+            state: { planName, startDate, endDate, price },
+        });
     };
-
-    if (loading) return <Typography variant="p">Loading...</Typography>;
-    if (error) return <Typography variant="p">Error: {error}</Typography>;
-
     return (
         <Container>
             <Typography variant="h3">Доступные туры</Typography>
             <div className={styles.tourContainer}>
                 {data && data.length > 0 ? (
-                    data.map((tour) => (
+                    data.map(({ id, planName, startDate, endDate, price }) => (
                         <Card
-                            key={tour.id}
-                            planName={tour.planName}
-                            startDate={formatDate(tour.startDate)}
-                            endDate={formatDate(tour.endDate)}
-                            price={tour.price}
-                            onBook={() => handleBook(tour.id)}
+                            key={id}
+                            planName={planName}
+                            startDate={formatDate(startDate)}
+                            endDate={formatDate(endDate)}
+                            price={price}
+                            onClick={() => handleClick(id, planName, startDate, endDate, price)}
                         />
                     ))
                 ) : (

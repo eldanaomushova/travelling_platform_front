@@ -3,11 +3,11 @@ import styles from "./mainBlock.module.scss";
 import { Container } from "@ui/container/Container";
 import { Button } from "@ui/buttons/Button";
 import { ArrowIcon } from "@assets/icons/desktop/ArrowIcon";
+import { useNavigate } from "react-router-dom";
+import { PATH } from "@utils/constants/Constants";
 
 export const MainBlock = () => {
-    const handleNavigation = (path) => {
-        navigate(path);
-    };
+    const navigate = useNavigate();
     return (
         <Container>
             <div className={styles.mainBlockWrapper}>
@@ -28,7 +28,7 @@ export const MainBlock = () => {
                     <Button
                         variant="secondary"
                         text="Начать путь"
-                        onClick={() => handleNavigation(PATH.news)}
+                        onClick={() => navigate(PATH.landmarks)}
                         width="260px"
                         height="60px"
                         padding="0 40px"

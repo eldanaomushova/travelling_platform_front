@@ -8,15 +8,12 @@ import { LandCard } from "@ui/cards/landCard/LandCard";
 import { useLandmarkStore } from "@modules/landmarkComponent/store/useLandmarkStore";
 
 export const Places = () => {
-    const { data, fetchData, loading, error } = useLandmarkStore();
+    const { data, fetchData } = useLandmarkStore();
     const navigate = useNavigate();
 
     useEffect(() => {
         fetchData();
     }, [fetchData]);
-
-    if (loading) return <Typography variant="p">Loading...</Typography>;
-    if (error) return <Typography variant="p">Error: {error}</Typography>;
 
     const places = data || [];
 

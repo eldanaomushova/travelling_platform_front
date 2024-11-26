@@ -2,15 +2,8 @@ import styles from "./landCard.module.scss";
 import mountains from "@assets/images/mountains.webp";
 import { ArrowIcon } from "@assets/icons/desktop/ArrowIcon";
 import { Typography } from "@ui/typography/Typography";
-import { PATH } from "@utils/constants/Constants";
 
-export const LandCard = ({ id, title, description, location }) => {
-    const handleClick = (id) => {
-        const selectedService = data.find((place) => place.id === id);
-        navigate(`${PATH.places}/${id}`, {
-            state: { service: selectedService },
-        });
-    };
+export const LandCard = ({ id, title, description, location, onClick }) => {
     return (
         <div className={styles.card} key={id}>
             <div className={styles.imageWrapper}>
@@ -22,16 +15,16 @@ export const LandCard = ({ id, title, description, location }) => {
                 </Typography>
             </div>
             <div className={styles.info}>
-                <Typography variant="h6" className={styles.text}>
+                <Typography variant="h6" className={styles.header}>
                     {title}
                 </Typography>
                 <Typography variant="p" className={styles.text}>
                     {description}
                 </Typography>
-                <Typography variant="p" className={styles.text}>
+                <Typography variant="p" className={styles.textlocation}>
                     {location}
                 </Typography>
-                <button onClick={handleClick} className={styles.button}>
+                <button onClick={onClick} className={styles.button}>
                     <Typography variant="p">Посетить</Typography>
                     <ArrowIcon />
                 </button>

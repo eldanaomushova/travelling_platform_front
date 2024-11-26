@@ -4,7 +4,12 @@ import { Typography } from "@ui/typography/Typography";
 import { ArrowIcon } from "@assets/icons/desktop/ArrowIcon";
 import styles from "./card.module.scss";
 
-export const Card = ({ image = lake, planName, startDate, endDate, price, onBook }) => {
+const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", { month: "long", day: "numeric" });
+};
+
+export const Card = ({ image = lake, planName, startDate, endDate, price, onClick }) => {
     return (
         <div className={styles.cardWrapper}>
             <div className={styles.textClass}>
@@ -18,14 +23,14 @@ export const Card = ({ image = lake, planName, startDate, endDate, price, onBook
                 </Typography>
                 <div className={styles.datalink}>
                     <Typography variant="p" className={styles.dataText}>
-                        {startDate} - {endDate}{" "}
+                        {formatDate(startDate)} - {formatDate(endDate)}
                     </Typography>
                     <Typography variant="h6" weight="text" className={styles.text}>
-                        {price} сом
+                        {price} som
                     </Typography>
                 </div>
-                <button className={styles.button} onClick={onBook}>
-                    <Typography variant="p">Бронировать</Typography>
+                <button className={styles.button} onClick={onClick}>
+                    <Typography variant="p">Book Now</Typography>
                     <ArrowIcon />
                 </button>
             </div>

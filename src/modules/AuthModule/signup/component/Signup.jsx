@@ -32,7 +32,7 @@ export const Signup = () => {
             const currentUser = result.user;
             setUser(currentUser);
             localStorage.setItem("email", currentUser.email);
-            navigate(PATH.home);
+            navigate(-1);
         } catch (error) {
             console.error("Google sign-in error:", error);
         }
@@ -67,8 +67,9 @@ export const Signup = () => {
 
             if (currentUser?.email && currentUser?.password) {
                 localStorage.setItem("email", currentUser.email);
-                navigate(PATH.home);
+                navigate(-1);
             } else {
+                window.alert("You are already registered, please log in now");
                 navigate(PATH.login);
             }
         } catch (error) {
@@ -90,10 +91,6 @@ export const Signup = () => {
     const handleBack = () => {
         navigate(PATH.home);
     };
-    const handleLoginPage = () => {
-        navigate(PATH.login);
-    };
-
     return (
         <div className={styles.signupContainer}>
             <div className={styles.signupWrapper}>
@@ -167,7 +164,7 @@ export const Signup = () => {
                         variant="text"
                         text="Есть аккаунт? Войти"
                         className={styles.alreadyBtn}
-                        onClick={handleLoginPage}
+                        onClick={() => navigate(PATH.login)}
                     />
                 </div>
             </div>

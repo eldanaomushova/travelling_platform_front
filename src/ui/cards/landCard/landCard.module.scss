@@ -27,24 +27,43 @@
         padding: 20px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: stretch;
         gap: 30px;
-        .button {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 22px;
-            border: none;
-            border-bottom: solid 2px var(--black);
-            background-color: var(--button-secondary);
-            height: 62px;
-            border-radius: 20px;
-            h4 {
-                letter-spacing: -2.7px;
-                color: var(--black);
-            }
+        height: 350px;
+        .header {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            height: 80px;
+        }
+        .text {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            height: 48px;
+        }
+    }
+
+    .button {
+        margin-top: auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 22px;
+        border: none;
+        border-bottom: solid 2px var(--black);
+        background-color: var(--button-secondary);
+        height: 62px;
+        border-radius: 20px;
+        h4 {
+            letter-spacing: -2.7px;
+            color: var(--black);
         }
     }
 }

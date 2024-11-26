@@ -1,11 +1,12 @@
 import styles from "./footer.module.scss";
 import logo from "../../assets/logo/logo.webp";
 import { Typography } from "@ui/typography/Typography";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export const Footer = () => {
+    const navigate = useNavigate();
     return (
         <div className={styles.footerContainer}>
-            <div className={styles.logoContainer}>
+            <div className={styles.logoContainer} onClick={() => navigate(PATH.home)}>
                 <div className={styles.logoWrapper}>
                     <img src={logo} alt="logo img" className={styles.logo} />
                 </div>

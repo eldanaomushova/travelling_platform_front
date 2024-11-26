@@ -48,7 +48,12 @@
             color: var(--white);
         }
     }
-    .buttonPrimary {
+    .buttonAuth {
         margin-right: 20px;
+    }
+    .buttonLogout {
+        margin-right: 20px;
+        background-color: gray;
+        color: var(--white);
     }
 }

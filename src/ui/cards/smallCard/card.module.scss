@@ -27,10 +27,20 @@
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
+        .text {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            height: 130px;
+        }
 
         .datalink {
             display: flex;
             justify-content: space-between;
+            height: 80px;
             .dataText {
                 max-width: 200px;
             }

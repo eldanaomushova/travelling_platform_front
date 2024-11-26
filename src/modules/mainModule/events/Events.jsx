@@ -6,23 +6,14 @@ import { Line2 } from "@assets/icons/desktop/Line2";
 import { useNavigate } from "react-router-dom";
 import { PATH } from "@utils/constants/Constants";
 import { Card } from "@ui/cards/smallCard/Card";
-import { BigCard } from "@ui/cards/bigCard/BigCard";
 import { useTourStore } from "@modules/tourComponent/store/useTourStore";
-
 export const Events = () => {
-    const { data, fetchData, loading, error } = useTourStore(); // Assuming data contains events
+    const { data, fetchData } = useTourStore();
     const navigate = useNavigate();
 
     useEffect(() => {
         fetchData();
     }, [fetchData]);
-
-    const handleClick = () => {
-        navigate(PATH.places);
-    };
-
-    if (loading) return <Typography variant="p">Loading...</Typography>;
-    if (error) return <Typography variant="p">Error: {error}</Typography>;
 
     return (
         <Container>
@@ -45,7 +36,9 @@ export const Events = () => {
                                 startDate={event.startDate}
                                 endDate={event.endDate}
                                 price={event.price}
-                                onClick={handleClick}
+                                onBook={() => {
+                                    navigate(PATH.tours);
+                                }}
                             />
                         ))}
                     </div>

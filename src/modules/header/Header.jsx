@@ -16,7 +16,7 @@ export const Header = () => {
 
     return (
         <div className={styles.headerContainer}>
-            <div className={styles.logoContainer}>
+            <div className={styles.logoContainer} onClick={() => handleNavigation(PATH.home)}>
                 <div className={styles.logoWrapper}>
                     <img src={logo} alt="logo img" className={styles.logo} />
                 </div>
@@ -27,10 +27,10 @@ export const Header = () => {
             <div className={styles.buttonsWrapper}>
                 <Button
                     className={
-                        location.pathname === PATH.news ? styles.activeButton : styles.button
+                        location.pathname === PATH.landmarks ? styles.activeButton : styles.button
                     }
                     variant="primary"
-                    text="Локации"
+                    text="Landmarks"
                     onClick={() => handleNavigation(PATH.landmarks)}
                     width="200px"
                     height="60px"
@@ -41,7 +41,7 @@ export const Header = () => {
                         location.pathname === PATH.home ? styles.activeButton : styles.button
                     }
                     variant="primary"
-                    text="Главная"
+                    text="Main"
                     onClick={() => handleNavigation(PATH.home)}
                     width="200px"
                     height="60px"
@@ -52,24 +52,40 @@ export const Header = () => {
                         location.pathname === PATH.tours ? styles.activeButton : styles.button
                     }
                     variant="primary"
-                    text="Туры"
+                    text="Tours"
                     onClick={() => handleNavigation(PATH.tours)}
                     width="200px"
                     height="60px"
                     padding="0 40px"
                 />
             </div>
-            <Button
-                variant="secondary"
-                text="Вход/Регистрация"
-                onClick={() => handleNavigation(PATH.signup)}
-                width="300px"
-                height="60px"
-                padding="0 40px"
-                className={styles.buttonPrimary}
-            >
-                <ArrowIcon color="var(--black)" width="20px" />
-            </Button>
+            {localStorage.getItem("email") ? (
+                <Button
+                    variant="secondary"
+                    text="Log Out"
+                    onClick={() => {
+                        localStorage.removeItem("email");
+                        window.alert("You have been logged out.");
+                        handleNavigation(PATH.home);
+                    }}
+                    width="160px"
+                    height="60px"
+                    padding="0 40px"
+                    className={styles.buttonLogout}
+                />
+            ) : (
+                <Button
+                    variant="secondary"
+                    text="Log In/Sign Up"
+                    onClick={() => handleNavigation(PATH.signup)}
+                    width="240px"
+                    height="60px"
+                    padding="0 40px"
+                    className={styles.buttonAuth}
+                >
+                    <ArrowIcon color="var(--black)" width="20px" />
+                </Button>
+            )}
         </div>
     );
 };
