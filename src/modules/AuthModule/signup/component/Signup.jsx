@@ -32,7 +32,9 @@ export const Signup = () => {
             const currentUser = result.user;
             setUser(currentUser);
             localStorage.setItem("email", currentUser.email);
-            navigate(-1);
+            if (localStorage.getItem("email", currentUser.email)) {
+                console.log("hheee");
+            }
         } catch (error) {
             console.error("Google sign-in error:", error);
         }
@@ -79,7 +81,7 @@ export const Signup = () => {
 
     <Button
         variant="secondary"
-        text="Регистрация"
+        text="Register Me"
         onClick={handleSignup}
         width="600px"
         height="60px"
@@ -104,45 +106,45 @@ export const Signup = () => {
                     </Typography>
                 </div>
                 <div className={styles.welcomeText}>
-                    <Typography variant="h2">Добро пожаловать!</Typography>
+                    <Typography variant="h2">Welcome to Kyrgyz Wonders</Typography>
                 </div>
                 <div className={styles.inputContainer}>
                     <Input
                         type="email"
                         name="email"
-                        placeholder="Введите email"
+                        placeholder="Enter email"
                         onChange={(e) => setEmail(e.target.value)}
                         className={styles.input}
                         error={emailError}
-                        errorMsg={emailError ? "Введите ваш email" : ""}
+                        errorMsg={emailError ? "Enter your email" : ""}
                     />
                     <Input
                         type="password"
                         name="password"
-                        placeholder="Введите пароль"
+                        placeholder="Enter password"
                         onChange={(e) => setPassword(e.target.value)}
                         error={passwordError || !passwordsMatch || passwordPatternErr}
                         errorMsg={
                             passwordPatternErr
-                                ? "Пароль: минимум 8 символов, включая загл. и стр. буквы, цифры."
+                                ? "Password: at least 8 characters, including uppercase and lowercase letters, and numbers."
                                 : passwordError
-                                  ? "Введите ваш пароль"
+                                  ? "Please enter your password."
                                   : !passwordsMatch
-                                    ? "Пароли не совпадают"
+                                    ? "Passwords do not match."
                                     : ""
                         }
                     />
                     <Input
                         type="password"
                         name="confirmPassword"
-                        placeholder="Подтвердите пароль"
+                        placeholder="Confirm your password"
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         error={!passwordsMatch}
-                        errorMsg={!passwordsMatch ? "Пароли не совпадают" : ""}
+                        errorMsg={!passwordsMatch ? "Passwords do not match" : ""}
                     />
                     <Button
                         variant="secondary"
-                        text="Регистрация"
+                        text="Sign in"
                         onClick={handleSignup}
                         width="600px"
                         height="60px"
@@ -153,16 +155,16 @@ export const Signup = () => {
                     <div className={styles.separatorContainer}>
                         <div className={styles.line} />
                         <Typography variant="p" weight="small" className={styles.orText}>
-                            Или
+                            Or
                         </Typography>
                         <div className={styles.line} />
                     </div>
                     <Button onClick={signInWithGoogle} variant="google" width="600px" height="60px">
-                        <GoogleIcon /> Войти с Google
+                        <GoogleIcon /> Sign in with Google
                     </Button>
                     <Button
                         variant="text"
-                        text="Есть аккаунт? Войти"
+                        text="Already have an account? Log in"
                         className={styles.alreadyBtn}
                         onClick={() => navigate(PATH.login)}
                     />

@@ -26,7 +26,7 @@ export const Card = ({ image = lake, planName, startDate, endDate, price, onClic
                         {formatDate(startDate)} - {formatDate(endDate)}
                     </Typography>
                     <Typography variant="h6" weight="text" className={styles.text}>
-                        {price} som
+                        ${price}
                     </Typography>
                 </div>
                 <button className={styles.button} onClick={onClick}>

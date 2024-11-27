@@ -14,25 +14,26 @@ export const LandmarkComponent = () => {
         fetchData();
     }, [fetchData]);
 
-    const handleClick = (id, title, description, location) => {
+    const handleClick = (id, title, description, location, price) => {
         navigate(`/landmarks/${id}`, {
-            state: { title, description, location },
+            state: { title, description, location, price },
         });
     };
 
     return (
         <Container>
-            <Typography variant="h3">Достопримечательности</Typography>
+            <Typography variant="h3">All Landmarks</Typography>
             <div className={styles.cardsWrapper}>
                 {data?.length > 0 ? (
-                    data.map(({ id, title, description, location }) => (
+                    data.map(({ id, title, description, location, price }) => (
                         <LandCard
                             key={id}
                             id={id}
                             title={title}
                             description={description}
                             location={location}
-                            onClick={() => handleClick(id, title, description, location)}
+                            price={price}
+                            onClick={() => handleClick(id, title, description, location, price)}
                         />
                     ))
                 ) : (

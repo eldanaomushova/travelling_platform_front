@@ -1,8 +1,8 @@
 import { create } from "zustand";
 
 const ENDPOINTS = {
-    aboutInfo: "http://localhost:8080/bookings/get-all",
-    createBooking: "http://localhost:8080/bookings/create",
+    aboutInfo: "http://localhost:8080/travel-plans/get-all",
+    createBooking: "http://localhost:8080/landmarks/create",
 };
 
 export const useAboutStore = create((set) => ({
@@ -21,14 +21,27 @@ export const useAboutStore = create((set) => ({
             console.error("Error fetching data:", error.message);
         }
     },
-    createBooking: async (email, title) => {
+    createBooking: async (id, planName, landmarkIds) => {
+        console.log(id, planName);
         try {
-            const response = await fetch(ENDPOINTS.createBooking, {
+            // Set startDate to now and endDate to one week later
+            const startDate = new Date().toISOString();
+            const endDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(); // One week later
+
+            // Prepare the request payload
+            const payload = {
+                planName,
+                startDate,
+                endDate,
+                landmarkIds,
+            };
+
+            const response = await fetch(`http://localhost:8080/travel/${id}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email, title }),
+                body: JSON.stringify(payload),
             });
 
             if (!response.ok) {

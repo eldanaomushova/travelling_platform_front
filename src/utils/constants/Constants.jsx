@@ -10,4 +10,5 @@ export const PATH = {
     tours: "/tours",
     landmarks: "/landmarks",
     place: "/place",
+    bookings: "/bookings",
 };

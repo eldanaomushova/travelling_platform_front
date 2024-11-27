@@ -18,10 +18,10 @@ export const Events = () => {
     return (
         <Container>
             <Typography variant="h1" weight="small" className={styles.title}>
-                БЛИЖАЙШИЕ
+                NEAREST
             </Typography>
             <Typography variant="h1" weight="small" className={styles.title2}>
-                СОБЫТИЯ
+                TOURS
             </Typography>
             <div className={styles.lineWrapper}>
                 <Line2 />
@@ -36,7 +36,7 @@ export const Events = () => {
                                 startDate={event.startDate}
                                 endDate={event.endDate}
                                 price={event.price}
-                                onBook={() => {
+                                onClick={() => {
                                     navigate(PATH.tours);
                                 }}
                             />

@@ -7,6 +7,7 @@ import { Login } from "@modules/authModule/login/components/Login";
 import { TourPage } from "@pages/tourPage/TourPage";
 import { LandmarkPage } from "@pages/landmarkPage/LandmarkPage";
 import { AboutPlacePage } from "@pages/aboutPlacePage/AboutPlacePage";
+import { BookingsPage } from "@pages/bookingsPage/BookingsPage";
 
 export const AppRouter = (user) => {
     return createBrowserRouter([
@@ -30,6 +31,10 @@ export const AppRouter = (user) => {
                 {
                     path: `${PATH.landmarks}/:id`,
                     element: <AboutPlacePage />,
+                },
+                {
+                    path: PATH.bookings,
+                    element: <BookingsPage />,
                 },
                 {
                     path: PATH.notFound,

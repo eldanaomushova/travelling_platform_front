@@ -58,7 +58,7 @@ export const AboutPlaceComponent = () => {
                             {`${formatDate(startDate)} - ${formatDate(endDate)}`}
                         </Typography>
                     )}
-                    <Typography variant="h6">{price} сом</Typography>
+                    <Typography variant="h6">$ {price}</Typography>
                 </div>
                 <Button
                     variant="secondary"

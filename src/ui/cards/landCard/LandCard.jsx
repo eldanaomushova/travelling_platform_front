@@ -3,7 +3,7 @@ import mountains from "@assets/images/mountains.webp";
 import { ArrowIcon } from "@assets/icons/desktop/ArrowIcon";
 import { Typography } from "@ui/typography/Typography";
 
-export const LandCard = ({ id, title, description, location, onClick }) => {
+export const LandCard = ({ id, title, description, location, price, onClick }) => {
     return (
         <div className={styles.card} key={id}>
             <div className={styles.imageWrapper}>
@@ -24,8 +24,11 @@ export const LandCard = ({ id, title, description, location, onClick }) => {
                 <Typography variant="p" className={styles.textlocation}>
                     {location}
                 </Typography>
+                <Typography variant="h6" className={styles.textlocation}>
+                    ${price}
+                </Typography>
                 <button onClick={onClick} className={styles.button}>
-                    <Typography variant="p">Посетить</Typography>
+                    <Typography variant="p">Visit now</Typography>
                     <ArrowIcon />
                 </button>
             </div>

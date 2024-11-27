@@ -25,7 +25,7 @@ export const TourComponent = () => {
     };
     return (
         <Container>
-            <Typography variant="h3">Доступные туры</Typography>
+            <Typography variant="h3">Available Tours</Typography>
             <div className={styles.tourContainer}>
                 {data && data.length > 0 ? (
                     data.map(({ id, planName, startDate, endDate, price }) => (

@@ -1,5 +1,5 @@
 import styles from "./header.module.scss";
-import logo from "../../assets/logo/logo.webp";
+import logo from "@assets/logo/logo.webp";
 import { Typography } from "@ui/typography/Typography";
 import { Button } from "@ui/buttons/Button";
 import { PATH } from "@utils/constants/Constants";
@@ -11,6 +11,11 @@ export const Header = () => {
     const location = useLocation();
 
     const handleNavigation = (path) => {
+        navigate(path);
+    };
+    const handleMyTour = (path) => {
+        const currentUser = localStorage.getItem("email");
+        console.log(currentUser);
         navigate(path);
     };
 
@@ -32,7 +37,7 @@ export const Header = () => {
                     variant="primary"
                     text="Landmarks"
                     onClick={() => handleNavigation(PATH.landmarks)}
-                    width="200px"
+                    width="180px"
                     height="60px"
                     padding="0 40px"
                 />
@@ -43,7 +48,7 @@ export const Header = () => {
                     variant="primary"
                     text="Main"
                     onClick={() => handleNavigation(PATH.home)}
-                    width="200px"
+                    width="180px"
                     height="60px"
                     padding="0 40px"
                 />
@@ -54,7 +59,18 @@ export const Header = () => {
                     variant="primary"
                     text="Tours"
                     onClick={() => handleNavigation(PATH.tours)}
-                    width="200px"
+                    width="180px"
+                    height="60px"
+                    padding="0 40px"
+                />
+                <Button
+                    className={
+                        location.pathname === PATH.bookings ? styles.activeButton : styles.button
+                    }
+                    variant="primary"
+                    text="My&nbsp;Journey"
+                    onClick={() => handleMyTour(PATH.bookings)}
+                    width="180px"
                     height="60px"
                     padding="0 40px"
                 />
