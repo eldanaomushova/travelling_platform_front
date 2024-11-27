@@ -28,7 +28,7 @@ export const MainBlock = () => {
                     <Button
                         variant="secondary"
                         text="Start my journey"
-                        onClick={() => navigate(PATH.landmarks)}
+                        onClick={() => navigate(PATH.bookings)}
                         width="260px"
                         height="60px"
                         padding="0 40px"

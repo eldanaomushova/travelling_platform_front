@@ -16,7 +16,12 @@ export const Header = () => {
     const handleMyTour = (path) => {
         const currentUser = localStorage.getItem("email");
         console.log(currentUser);
-        navigate(path);
+        if(currentUser){
+            navigate(path);
+        }else{
+            window.alert("Please Log in First")
+            navigate(PATH.signup);
+        }
     };
 
     return (
@@ -32,22 +37,22 @@ export const Header = () => {
             <div className={styles.buttonsWrapper}>
                 <Button
                     className={
-                        location.pathname === PATH.landmarks ? styles.activeButton : styles.button
+                        location.pathname === PATH.home ? styles.activeButton : styles.button
                     }
                     variant="primary"
-                    text="Landmarks"
-                    onClick={() => handleNavigation(PATH.landmarks)}
+                    text="Main"
+                    onClick={() => handleNavigation(PATH.home)}
                     width="180px"
                     height="60px"
                     padding="0 40px"
                 />
                 <Button
                     className={
-                        location.pathname === PATH.home ? styles.activeButton : styles.button
+                        location.pathname === PATH.landmarks ? styles.activeButton : styles.button
                     }
                     variant="primary"
-                    text="Main"
-                    onClick={() => handleNavigation(PATH.home)}
+                    text="Landmarks"
+                    onClick={() => handleNavigation(PATH.landmarks)}
                     width="180px"
                     height="60px"
                     padding="0 40px"
