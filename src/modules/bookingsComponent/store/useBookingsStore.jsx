@@ -14,21 +14,20 @@ export const useBookingsStore = create((set) => ({
             const response = await fetch(ENDPOINTS.bookingsInfo);
             const data = await response.json();
             set({ data });
-            console.log(data);
         } catch (error) {
             console.error("Fetch Error:", error);
         }
     },
 
-    editData: async (id, updatedData) => {
+    editData: async (id, planName, startDate, endDate) => {
+        console.log(id, planName, startDate, endDate)
         try {
-            console.log("Sending PUT data:", updatedData);
             const response = await fetch(ENDPOINTS.editBooking(id), {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(updatedData),
+                body: JSON.stringify(planName, startDate, endDate),
             });
 
             if (!response.ok) {
@@ -38,7 +37,7 @@ export const useBookingsStore = create((set) => ({
             const updatedBooking = await response.json();
             set((state) => ({
                 data: state.data.map((item) =>
-                    item.id === id ? { ...item, ...updatedData } : item
+                    item.id === id ? { ...item, ...planName, ...startDate, ...endDate } : item
                 ),
             }));
         } catch (error) {

@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 import styles from "./button.module.scss";
 import { Typography } from "@ui/typography/Typography";
 
@@ -15,11 +14,13 @@ export const Button = ({
     padding,
     className,
 }) => {
+    const buttonClasses = `${styles.button} ${styles[variant] || ""} ${
+        disabled ? styles.disabled : ""
+    } ${className || ""}`.trim();
+
     return (
         <button
-            className={classNames(styles.button, styles[variant], className, {
-                [styles.disabled]: disabled,
-            })}
+            className={buttonClasses}
             onClick={!disabled ? onClick : undefined}
             disabled={disabled}
             style={{ width, height, padding }}

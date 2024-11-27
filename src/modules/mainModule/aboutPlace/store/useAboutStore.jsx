@@ -24,11 +24,8 @@ export const useAboutStore = create((set) => ({
     createBooking: async (id, planName, landmarkIds) => {
         console.log(id, planName);
         try {
-            // Set startDate to now and endDate to one week later
             const startDate = new Date().toISOString();
-            const endDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(); // One week later
-
-            // Prepare the request payload
+            const endDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(); 
             const payload = {
                 planName,
                 startDate,

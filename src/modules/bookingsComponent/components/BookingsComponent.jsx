@@ -37,7 +37,11 @@ export const BookingsComponent = () => {
         try {
             await editData(id, {
                 planName: editValues.name,
+            }, {
+                
                 startDate: `${editValues.startDate}T00:00:00`,
+            }, {
+                
                 endDate: `${editValues.endDate}T00:00:00`,
             });
             setEditingId(null);
@@ -51,7 +55,6 @@ export const BookingsComponent = () => {
         if (window.confirm("Are you sure you want to delete this booking?")) {
             try {
                 await deleteData(id);
-                console.log(`Booking with ID ${id} deleted successfully.`);
             } catch (error) {
                 console.error("Error deleting booking:", error);
             }
