@@ -12,7 +12,6 @@ export const useTourStore = create((set) => ({
             const response = await fetch(ENDPOINTS.tourInfo);
             const data = await response.json();
             set({ data: data });
-            console.log(data);
         } catch (error) {
             console.error("Fetch Error");
         }

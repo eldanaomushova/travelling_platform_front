@@ -1,4 +1,4 @@
-import { AboutPlaceComponent } from "@modules/mainModule/aboutPlace/components/AboutPlaceComponent";
+import { AboutPlaceComponent } from "@modules/aboutPlace/components/AboutPlaceComponent";
 
 export const AboutPlacePage = () => {
     return (

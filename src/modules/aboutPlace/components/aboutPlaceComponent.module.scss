@@ -1,0 +1,118 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+    background: var(--light-gray);
+    border-radius: 10px;
+}
+
+.imageWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    max-width: 500px;
+    margin: 0 auto;
+    img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+}
+
+.detailsWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    h2 {
+        color: var(--primary-dark);
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    p {
+        color: var(--text-secondary);
+        line-height: 1.5;
+    }
+
+    h6 {
+        color: var(--text-primary);
+    }
+}
+
+.landmarks {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--light-blue);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    h6 {
+        margin-bottom: 15px;
+        color: var(--primary-dark);
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 15px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            p {
+                color: var(--text-secondary);
+                line-height: 1.4;
+            }
+        }
+    }
+}
+
+.buttonPrimary {
+    margin-top: 20px;
+    align-self: flex-end;
+    width: fit-content;
+    height: auto;
+
+    button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            background: var(--primary-dark);
+        }
+    }
+}

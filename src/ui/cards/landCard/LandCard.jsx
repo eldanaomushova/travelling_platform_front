@@ -1,14 +1,13 @@
 import styles from "./landCard.module.scss";
-import mountains from "@assets/images/mountains.webp";
 import { ArrowIcon } from "@assets/icons/desktop/ArrowIcon";
 import { Typography } from "@ui/typography/Typography";
 
-export const LandCard = ({ id, title, description, location, price, onClick }) => {
+export const LandCard = ({ id, title, imageUrl, description, location, price, onClick }) => {
     return (
         <div className={styles.card} key={id}>
             <div className={styles.imageWrapper}>
                 <div>
-                    <img src={mountains} alt={`${title} image`} className={styles.images} />
+                    <img src={imageUrl} alt={`${title} image`} className={styles.images} />
                 </div>
                 <Typography variant="h6" className={styles.numberImage}>
                     {id < 10 ? `0${id}` : id}

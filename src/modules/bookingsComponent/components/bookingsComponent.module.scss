@@ -105,7 +105,8 @@
 }
 
 .editButton,
-.deleteButton {
+.deleteButton ,
+.saveButton{
     padding: 10px 20px;
     border: 1px solid transparent;
     border-radius: 25px;
@@ -137,16 +138,17 @@
 }
 
 .editInput {
-    font-size: 16px;
-    padding: 5px;
+    font-size: 32px;
+    font-weight: 500;
+    padding: 4px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin-right: 10px;
     width: 100%;
 }
 
 .dateInput {
-    font-size: 14px;
+    font-size: 18px;
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -155,12 +157,7 @@
 
 .saveButton {
     background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
+    color: var(--white);
 }
 
 .saveButton:hover {

@@ -26,15 +26,13 @@ export const Signup = () => {
     const { register } = useSignupStore();
 
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
     const signInWithGoogle = async () => {
         try {
             const result = await signInWithPopup(auth, provider);
             const currentUser = result.user;
-            setUser(currentUser);
             localStorage.setItem("email", currentUser.email);
-            if (localStorage.getItem("email", currentUser.email)) {
-                console.log("hheee");
-            }
+            navigate(PATH.home); // Redirect to the home page
         } catch (error) {
             console.error("Google sign-in error:", error);
         }
@@ -69,7 +67,7 @@ export const Signup = () => {
 
             if (currentUser?.email && currentUser?.password) {
                 localStorage.setItem("email", currentUser.email);
-                navigate(-1);
+                navigate(PATH.home); // Redirect to the home page
             } else {
                 window.alert("You are already registered, please log in now");
                 navigate(PATH.login);
@@ -79,20 +77,10 @@ export const Signup = () => {
         }
     };
 
-    <Button
-        variant="secondary"
-        text="Register Me"
-        onClick={handleSignup}
-        width="600px"
-        height="60px"
-        padding="0 40px"
-    >
-        <ArrowIcon color="var(--black)" />
-    </Button>;
-
     const handleBack = () => {
         navigate(PATH.home);
     };
+
     return (
         <div className={styles.signupContainer}>
             <div className={styles.signupWrapper}>
@@ -128,10 +116,10 @@ export const Signup = () => {
                             passwordPatternErr
                                 ? "Password: at least 8 characters, including uppercase and lowercase letters, and numbers."
                                 : passwordError
-                                  ? "Please enter your password."
-                                  : !passwordsMatch
-                                    ? "Passwords do not match."
-                                    : ""
+                                ? "Please enter your password."
+                                : !passwordsMatch
+                                ? "Passwords do not match."
+                                : ""
                         }
                     />
                     <Input
@@ -176,3 +164,4 @@ export const Signup = () => {
         </div>
     );
 };
+

@@ -14,28 +14,33 @@ const formatDate = (dateString) => {
 export const TourComponent = () => {
     const { data, fetchData } = useTourStore();
     const navigate = useNavigate();
+    const type = "tour";
+
     useEffect(() => {
         fetchData();
     }, [fetchData]);
 
-    const handleClick = (id, planName, startDate, endDate, price) => {
+    const handleClick = (id, planName, startDate, endDate, price, landmarks) => {
         navigate(`/landmarks/${id}`, {
-            state: { planName, startDate, endDate, price },
+            state: { type, id, planName, startDate, endDate, price, landmarks },
         });
     };
+
     return (
         <Container>
             <Typography variant="h3">Available Tours</Typography>
             <div className={styles.tourContainer}>
                 {data && data.length > 0 ? (
-                    data.map(({ id, planName, startDate, endDate, price }) => (
+                    data.map(({ id, planName, startDate, endDate, price, landmarks }) => (
                         <Card
                             key={id}
                             planName={planName}
                             startDate={formatDate(startDate)}
                             endDate={formatDate(endDate)}
                             price={price}
-                            onClick={() => handleClick(id, planName, startDate, endDate, price)}
+                            onClick={() =>
+                                handleClick(id, planName, startDate, endDate, price, landmarks)
+                            }
                         />
                     ))
                 ) : (

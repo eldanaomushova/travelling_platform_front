@@ -28,10 +28,11 @@ export const Places = () => {
                 {places.length > 0 ? (
                     places
                         .slice(0, 3)
-                        .map(({ id, title, description, location, price }) => (
+                        .map(({ id, title, description, location, price, imageUrl }) => (
                             <LandCard
                                 key={id}
                                 id={id}
+                                imageUrl={imageUrl}
                                 title={title}
                                 description={description}
                                 location={location}
