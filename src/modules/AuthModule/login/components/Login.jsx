@@ -60,10 +60,12 @@ export const Login = () => {
 
         try {
             const currentUser = await login(email, password);
+            console.log(currentUser);
             if (currentUser) {
                 localStorage.setItem("email", currentUser.email);
                 navigate(PATH.home);
             }
+            localStorage.setItem("email", currentUser.email);
         } catch (error) {
             setLoginError(error.message || "Login failed");
         }
