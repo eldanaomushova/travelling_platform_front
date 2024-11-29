@@ -25,6 +25,8 @@ export const useLoginStore = create((set) => ({
 
                 localStorage.setItem("authToken", data.token);
                 return data;
+            } else if (response.status === 401) {
+                window.alert("Please verify your account.");
             } else {
                 const errorData = await response.json();
                 set({ error: errorData });

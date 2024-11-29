@@ -32,7 +32,7 @@ export const Signup = () => {
             const result = await signInWithPopup(auth, provider);
             const currentUser = result.user;
             localStorage.setItem("email", currentUser.email);
-            navigate(PATH.home); // Redirect to the home page
+            navigate(PATH.home);
         } catch (error) {
             console.error("Google sign-in error:", error);
         }
@@ -67,9 +67,7 @@ export const Signup = () => {
 
             if (currentUser?.email && currentUser?.password) {
                 localStorage.setItem("email", currentUser.email);
-                navigate(PATH.home); // Redirect to the home page
-            } else {
-                window.alert("You are already registered, please log in now");
+                window.alert("Registered sucessfully, please log in now");
                 navigate(PATH.login);
             }
         } catch (error) {
@@ -116,10 +114,10 @@ export const Signup = () => {
                             passwordPatternErr
                                 ? "Password: at least 8 characters, including uppercase and lowercase letters, and numbers."
                                 : passwordError
-                                ? "Please enter your password."
-                                : !passwordsMatch
-                                ? "Passwords do not match."
-                                : ""
+                                  ? "Please enter your password."
+                                  : !passwordsMatch
+                                    ? "Passwords do not match."
+                                    : ""
                         }
                     />
                     <Input
@@ -164,4 +162,3 @@ export const Signup = () => {
         </div>
     );
 };
-

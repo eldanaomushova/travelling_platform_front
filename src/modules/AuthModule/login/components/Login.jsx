@@ -35,13 +35,6 @@ export const Login = () => {
     };
 
     useEffect(() => {
-        const email = localStorage.getItem("email");
-        if (email) {
-            window.alert("You are already logged in!");
-            navigate(-2);
-        }
-    }, []);
-    useEffect(() => {
         initializeToken();
     }, [initializeToken]);
 
