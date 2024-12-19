@@ -1,10 +1,8 @@
-import React from "react";
-
 export const Line2 = (props) => {
     return (
         <svg
             className={props.className}
-            width="1340"
+            width="1390"
             height="133"
             viewBox="0 0 1852 133"
             fill="none"

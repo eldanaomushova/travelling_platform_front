@@ -1,0 +1,29 @@
+.cardWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid var(--black);
+    border-radius: 30px;
+    .textClass {
+        margin-bottom: 20px;
+    }
+    .textClass {
+        display: flex;
+        justify-content: space-between;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 180px;
+        .title {
+            margin-top: 30px;
+            font-size: 36px;
+        }
+        .name {
+            margin-top: auto;
+        }
+    }
+}

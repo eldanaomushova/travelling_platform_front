@@ -1,0 +1,57 @@
+.myTourContainer {
+    display: flex;
+    gap: 24px;
+    margin: 0 auto;
+    max-width: 1440px;
+    .myTourMenuWrapper {
+        width: 20%;
+        border-right: 3px solid var(--black);
+        height: 100vh;
+        .logoWrapper {
+            display: flex;
+            justify-content: space-between;
+            padding-right: 15px;
+            margin-top: 10px;
+            .logoText {
+                display: flex;
+                align-items: center;
+            }
+            .logo {
+                width: 50px;
+            }
+        }
+        .myTourButtons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 30px;
+            .buttonCurrentPage {
+                padding: 4px;
+                justify-content: flex-start;
+                padding-left: 20px;
+            }
+            .buttonPeriod {
+                border-radius: 100px;
+                padding: 12px;
+            }
+        }
+    }
+    .toursWrapper {
+        margin-top: 10px;
+        .choosePer {
+            margin-top: 44px;
+        }
+        .periodButtons {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+            .buttonPeriod {
+                padding: 4px;
+                justify-content: center;
+            }
+        }
+        .periodTextHeader {
+            margin-top: 30px;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 .cardWrapper {
-    max-width: 430px;
+    max-width: 454px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -7,7 +7,67 @@
     align-items: stretch;
     border: solid 2px var(--black);
     background-color: var(--white);
-    border-radius: 30px;
+    border-radius: 32px;
+    .textClass {
+        position: relative;
+        display: inline-block;
+        .imageContainer {
+            position: relative;
+            .imageClass {
+                width: 100%;
+                height: auto;
+                display: block;
+                position: relative;
+                filter: brightness(55%);
+                background: var(--black);
+            }
+            .ratingContainer {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                display: flex;
+                align-items: center;
+                margin-right: 10px;
+                .ratings {
+                    display: flex;
+                    .ratingText {
+                        color: var(--white);
+                    }
+                    .iconStar {
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+        .typeContainer {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            color: var(--white);
+            align-items: flex-start;
+            margin-left: 10px;
+            .tourCategory {
+                border: 2px solid var(--white);
+                border-radius: 30px;
+                padding: 4px 18px;
+                width: fit-content;
+            }
+            .oneLineText {
+                display: flex;
+                .tourType {
+                    margin-left: 10px;
+                    border: 2px solid var(--black);
+                    border-radius: 30px;
+                    padding: 4px 18px;
+                    width: fit-content;
+                    background-color: var(--black);
+                }
+            }
+        }
+    }
 
     .datalink {
         display: flex;
@@ -34,16 +94,26 @@
             overflow: hidden;
             text-overflow: ellipsis;
             word-wrap: break-word;
-            height: 130px;
+            height: 70px;
         }
 
         .datalink {
             display: flex;
             justify-content: space-between;
-            height: 80px;
             .dataText {
-                max-width: 200px;
+                max-width: 340px;
+                margin: 0;
+                font-weight: lighter;
             }
+            .arrowIcon {
+                margin: auto 0;
+            }
+        }
+        .price {
+            align-self: flex-end;
+            margin: 0;
+            margin-bottom: 30px;
+            font-weight: lighter;
         }
         .button {
             width: 100%;

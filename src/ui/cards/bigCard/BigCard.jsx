@@ -12,7 +12,7 @@ export const BigCard = ({ onClick }) => {
                         <img src={lakeMountain} alt="Card image" className={styles.imageClass} />
                     </div>
                     <div className={styles.textWrapper}>
-                        <Typography variant="p" weight="text" className={styles.text}>
+                        <Typography variant="h5" className={styles.text}>
                             Долина Арашан
                         </Typography>
                         <ArrowIcon onClick={onClick} width="25px" height="25px" />

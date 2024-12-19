@@ -63,7 +63,8 @@ export const Signup = () => {
         }
 
         try {
-            const currentUser = await register(email, password, navigate);
+            const username = email.split("@")[0];
+            const currentUser = await register(email, password, username, navigate);
 
             if (currentUser?.email && currentUser?.password) {
                 localStorage.setItem("email", currentUser.email);
@@ -98,39 +99,42 @@ export const Signup = () => {
                     <Input
                         type="email"
                         name="email"
-                        placeholder="Enter email"
+                        placeholder="Введите email"
                         onChange={(e) => setEmail(e.target.value)}
                         className={styles.input}
                         error={emailError}
-                        errorMsg={emailError ? "Enter your email" : ""}
+                        errorMsg={emailError ? "Введите ваш email" : ""}
                     />
                     <Input
                         type="password"
                         name="password"
-                        placeholder="Enter password"
+                        placeholder="Введите пароль"
+                        className={styles.input}
                         onChange={(e) => setPassword(e.target.value)}
                         error={passwordError || !passwordsMatch || passwordPatternErr}
                         errorMsg={
                             passwordPatternErr
-                                ? "Password: at least 8 characters, including uppercase and lowercase letters, and numbers."
+                                ? "Пароль: минимум 8 символов, включая заглавные и строчные буквы, а также цифры."
                                 : passwordError
-                                  ? "Please enter your password."
+                                  ? "Пожалуйста, введите пароль."
                                   : !passwordsMatch
-                                    ? "Passwords do not match."
+                                    ? "Пароли не совпадают."
                                     : ""
                         }
                     />
                     <Input
                         type="password"
                         name="confirmPassword"
-                        placeholder="Confirm your password"
+                        className={styles.input}
+                        placeholder="Подтвердите пароль"
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         error={!passwordsMatch}
-                        errorMsg={!passwordsMatch ? "Passwords do not match" : ""}
+                        errorMsg={!passwordsMatch ? "Пароли не совпадают" : ""}
                     />
                     <Button
                         variant="secondary"
-                        text="Sign in"
+                        variantText="h6"
+                        text="Регистрация"
                         onClick={handleSignup}
                         width="600px"
                         height="60px"
@@ -146,11 +150,12 @@ export const Signup = () => {
                         <div className={styles.line} />
                     </div>
                     <Button onClick={signInWithGoogle} variant="google" width="600px" height="60px">
-                        <GoogleIcon /> Sign in with Google
+                        <GoogleIcon /> Войти c Google
                     </Button>
                     <Button
                         variant="text"
-                        text="Already have an account? Log in"
+                        variantText="h6"
+                        text="Есть аккаунт? Войти"
                         className={styles.alreadyBtn}
                         onClick={() => navigate(PATH.login)}
                     />

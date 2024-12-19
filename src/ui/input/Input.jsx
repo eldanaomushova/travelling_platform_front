@@ -11,6 +11,7 @@ export const Input = ({
     className,
     value = "",
     errorMsg,
+    children,
 }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [inputValue, setInputValue] = useState(value);
@@ -31,9 +32,11 @@ export const Input = ({
 
     const isPlaceholderVisible = !inputValue && !isFocused;
     const inputClasses = `${styles.input} ${className} ${error ? styles.error : ""}`;
+    const containerClasses = `${styles.inputContainer} ${children ? styles.hasIcon : ""}`;
 
     return (
-        <div className={styles.inputContainer}>
+        <div className={containerClasses}>
+            {children && <div className={styles.icon}>{children}</div>}
             <input
                 type={type}
                 name={name}

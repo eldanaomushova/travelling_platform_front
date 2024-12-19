@@ -1,0 +1,78 @@
+.aboutUsContainer {
+    .moments {
+        margin-top: 120px;
+        .aboutSmallText {
+            width: 430px;
+            margin: 20px 0;
+        }
+        .imageGallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 40px;
+
+            .galleryImage {
+                width: 330px;
+                height: 330px;
+                object-fit: cover;
+            }
+        }
+    }
+    .reviews {
+        margin-top: 120px;
+        .reviewTitle {
+            width: 900px;
+            margin-bottom: 40px;
+        }
+        .reviewCards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+    }
+    .questions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 120px;
+        .questionsWrapper {
+            .questionsText {
+                width: 440px;
+                margin: 44px 0;
+            }
+            .questionItem {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+                border-top: 2px solid var(--black);
+                &:last-child {
+                    border-bottom: 2px solid var(--black);
+                }
+                .questionsButton {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 670px;
+                    height: 80px;
+
+                    .arrowIcon {
+                        margin-left: 10px;
+                    }
+                }
+                .answerText {
+                    margin-top: 10px;
+                    font-size: 14px;
+                }
+                .questionDescription {
+                    margin-top: 10px;
+                    font-size: 14px;
+                    color: #555;
+                }
+            }
+        }
+        .image {
+            border-radius: 15px;
+            margin-left: 36px;
+        }
+    }
+}

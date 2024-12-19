@@ -1,10 +1,17 @@
-.titleWrapper {
-    max-width: 1070px;
-}
-.cardsWrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 40px;
-    padding: 2px;
+.placesContainer {
+    margin-top: 120px;
+    .titleWrapper {
+        max-width: 1070px;
+    }
+    .cardsWrapper {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 40px;
+        padding: 2px;
+    }
+    .title {
+        width: 420px;
+        margin-bottom: 30px;
+    }
 }

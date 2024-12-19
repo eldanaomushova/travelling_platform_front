@@ -98,7 +98,7 @@ export const Login = () => {
                     <Input
                         type="email"
                         name="email"
-                        placeholder="Enter email"
+                        placeholder="Введите email"
                         onChange={(e) => {
                             setEmail(e.target.value);
                             setEmailError(false);
@@ -108,36 +108,38 @@ export const Login = () => {
                         error={emailError || loginError}
                         errorMsg={
                             loginError
-                                ? "Incorrect email or password"
+                                ? "Неправильный email или пароль"
                                 : emailError
-                                  ? "Email shouldn't be empty"
+                                  ? "Email не должен быть пустым"
                                   : ""
                         }
                     />
                     <Input
                         type="password"
                         name="password"
-                        placeholder="Enter password"
+                        placeholder="Введите пароль"
                         onChange={(e) => {
                             setPassword(e.target.value);
                             setPasswordPatternErr(false);
                             setLoginError("");
                         }}
+                        className={styles.input}
                         error={passwordError || passwordPatternErr || loginError}
                         errorMsg={
                             loginError
-                                ? "Invalid email or password."
+                                ? "Неправильный email или пароль."
                                 : passwordPatternErr
-                                  ? "Password: at least 8 characters, including uppercase and lowercase letters, and numbers."
+                                  ? "Пароль: минимум 8 символов, включая заглавные и строчные буквы, а также цифры."
                                   : passwordError
-                                    ? "Password cannot be empty."
+                                    ? "Пароль не может быть пустым."
                                     : ""
                         }
                     />
 
                     <Button
                         variant="secondary"
-                        text="Log in"
+                        variantText="h6"
+                        text="Войти"
                         onClick={handleLogin}
                         width="600px"
                         height="60px"
@@ -153,11 +155,12 @@ export const Login = () => {
                         <div className={styles.line} />
                     </div>
                     <Button onClick={signInWithGoogle} variant="google" width="600px" height="60px">
-                        <GoogleIcon /> Log in with Google
+                        <GoogleIcon /> Войти c Google
                     </Button>
                     <Button
                         variant="text"
-                        text="Do not have an account? Sign in"
+                        variantText="h6"
+                        text="Нет аккаунта? Регистрация"
                         className={styles.alreadyBtn}
                         onClick={handleSignupPage}
                     />

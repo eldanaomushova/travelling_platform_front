@@ -11,4 +11,7 @@ export const PATH = {
     landmarks: "/landmarks",
     place: "/place",
     bookings: "/bookings",
+    mytours: "/mytours",
 };
+
+export const ReviewCardType = ["Отели", "Отели", "Отели", "Отели", "Отели"];

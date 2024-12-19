@@ -1,0 +1,48 @@
+.title {
+    margin-top: 30px;
+}
+.text2Wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    .text {
+        width: 200px;
+        margin-top: 30px;
+    }
+}
+.image {
+    background-size: cover;
+    background-position: center;
+    background-image: url("@assets/images/mainblockImg.png");
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    height: 435px;
+    margin-top: 30px;
+    width: 100vw;
+    margin: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin-top: 30px;
+    .photoByText {
+        position: absolute;
+        top: 10%;
+        left: 2.5%;
+        color: var(--white);
+        width: 200px;
+    }
+    .tourNametext {
+        position: absolute;
+        top: 35%;
+        left: 2.5%;
+        color: var(--white);
+        font-size: 76px;
+        width: 930px;
+    }
+    .buttonPrimary {
+        position: absolute;
+        top: 80%;
+        left: 2.5%;
+    }
+}

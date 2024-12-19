@@ -1,12 +1,11 @@
-export const UserIcon = (props) => {
+export const UserIcon = (color, className) => {
     return (
         <svg
-            className={props.className}
-            color="currentColor"
-            width="40"
-            height="40"
+            className={className}
+            width="34"
+            height="34"
             viewBox="0 0 40 40"
-            fill="none"
+            color={color}
             xmlns="http://www.w3.org/2000/svg"
         >
             <path

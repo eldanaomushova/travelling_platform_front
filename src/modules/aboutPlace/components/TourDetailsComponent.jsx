@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./aboutPlaceComponent.module.scss";
+import styles from "./tourDetailsComponent.module.scss";
 import lake from "@assets/images/lake.webp";
 import { Typography } from "@ui/typography/Typography";
 import { Button } from "@ui/buttons/Button";
@@ -9,13 +9,16 @@ import { useAboutStore } from "../store/useAboutStore";
 import { useUserStore } from "@stores/useUserStore";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ModalInput } from "@ui/modalInput/ModalInput";
+import { SmileTourIcon } from "@assets/icons/desktop/SmileTourIcon";
+import { ActivityTourIcon } from "@assets/icons/desktop/ActivityTourIcon";
+import { Review } from "@modules/mainModule/review/Review";
 
 const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", { month: "long", day: "numeric" });
 };
 
-export const AboutPlaceComponent = () => {
+export const TourDetailsComponent = () => {
     const { state } = useLocation();
     const {
         id: placeId,
@@ -33,6 +36,7 @@ export const AboutPlaceComponent = () => {
     const { createBookingTour, createBookingTravel } = useAboutStore();
     const { fetchUserIdByEmail } = useUserStore();
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [showDescription, setShowDescription] = useState(false); // Toggle state for description visibility
 
     const handleBooking = async () => {
         try {
@@ -95,42 +99,85 @@ export const AboutPlaceComponent = () => {
         }
     };
 
+    const handleOpen = () => {
+        setShowDescription((prev) => !prev); // Toggle description visibility
+    };
+
     return (
         <div className={styles.container}>
+            <div className={styles.image} />
             <div className={styles.detailsWrapper}>
-                <div className={styles.imageWrapper}>
-                    <img src={imageUrl || lake} alt={`${title} image`} className={styles.image} />
-                </div>
-                <div className={styles.details}>
-                    <Typography variant="h2">
-                        {title} {planName}
+                <Typography variant="h1" weight="small">
+                    {planName}
+                </Typography>
+                <Typography variant="h3">Программа</Typography>
+                <Typography variant="h6" className={styles.programText}>
+                    <ArrowIcon width="30px" className={styles.arrowIconLeft} />
+                    Данный тур имеет возрастное ограничение 18+
+                </Typography>
+                <Typography variant="h6" className={styles.programText}>
+                    <ArrowIcon width="30px" className={styles.arrowIconLeft} />
+                    Язык тура: русский
+                </Typography>
+                <div className={styles.descriptionDiv}>
+                    <Typography
+                        variant="h3"
+                        onClick={handleOpen}
+                        className={styles.descriptionText}
+                    >
+                        Краткое описание тура
+                        <ArrowIcon
+                            width="30px"
+                            className={`${styles.arrowIcon} ${showDescription ? styles.rotated : ""}`}
+                        />
                     </Typography>
-                    <Typography variant="p">{description}</Typography>
-                    {startDate && (
-                        <Typography variant="p">
-                            {`${formatDate(startDate)} - ${formatDate(endDate)}`}
-                        </Typography>
-                    )}
-                    <Typography variant="h6">{`$ ${price}`}</Typography>
-                    {landmarks && landmarks.length > 0 && (
-                        <div className={styles.landmarks}>
-                            <Typography variant="h6">Landmarks of the tour</Typography>
-                            <ul>
-                                {landmarks.map((landmark) => (
-                                    <li key={landmark.id} className={styles.landmarkItem}>
-                                        <Typography variant="p">{landmark.title}</Typography>
-                                        <Typography variant="p">{landmark.description}</Typography>
-                                        <Typography variant="p">{`Location: ${landmark.location}`}</Typography>
-                                        <Typography variant="p">{`Price: $${landmark.price}`}</Typography>
-                                    </li>
-                                ))}
-                            </ul>
+                    {showDescription && (
+                        <div className={styles.descriptionContent}>
+                            <Typography variant="p">
+                                {description || "Описание отсутствует."}
+                            </Typography>
                         </div>
                     )}
                 </div>
+                <div className={styles.aboutTourDiv}>
+                    <Typography variant="h3" className={styles.aboutTourText}>
+                        <SmileTourIcon />
+                        Уровень комфорта
+                    </Typography>
+                    <Typography variant="h3" className={styles.aboutTourText}>
+                        хороший
+                    </Typography>
+                </div>
+                <div className={styles.aboutTourDiv}>
+                    <Typography variant="h3" className={styles.aboutTourText}>
+                        <ActivityTourIcon />
+                        Уровень активности
+                    </Typography>
+                    <Typography variant="h3" className={styles.aboutTourText}>
+                        хороший
+                    </Typography>
+                </div>
+                <div className={styles.aboutTourDiv}>
+                    <Typography variant="h3" className={styles.aboutTourText}>
+                        Стоимость тура:
+                    </Typography>
+                    <Typography variant="h3" className={styles.aboutTourText}>
+                        {price}
+                    </Typography>
+                </div>
+                <div className={styles.aboutTourDiv}>
+                    <Typography variant="h3" className={styles.aboutTourText}>
+                        Телефон для связи
+                    </Typography>
+                    <Typography variant="h3" className={styles.aboutTourText}>
+                        +999 999 999
+                    </Typography>
+                </div>
+
                 <Button
                     variant="secondary"
-                    text="Book"
+                    text="Присоединиться"
+                    variantText="h4"
                     onClick={handleBooking}
                     width="100%"
                     height="60px"
@@ -140,6 +187,7 @@ export const AboutPlaceComponent = () => {
                     <ArrowIcon color="var(--black)" width="20px" />
                 </Button>
             </div>
+            <Review />
             {isModalOpen && (
                 <ModalInput
                     isOpen={isModalOpen}

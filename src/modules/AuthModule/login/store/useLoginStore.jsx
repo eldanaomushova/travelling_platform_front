@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 const ENDPOINTS = {
-    login: "http://localhost:8080/trusted/auth/login",
+    login: "https://alaia-tours.up.railway.app/api/v1/auth/sign-in",
 };
 
 export const useLoginStore = create((set) => ({

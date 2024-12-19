@@ -1,0 +1,16 @@
+.tourContainer {
+    margin-top: 530px;
+    .inputWrapper {
+        display: flex;
+        margin-bottom: 40px;
+        .searchInput {
+            width: 700px;
+        }
+    }
+
+    .tourWrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}

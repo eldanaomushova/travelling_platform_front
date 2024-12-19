@@ -16,10 +16,10 @@ export const Header = () => {
     const handleMyTour = (path) => {
         const currentUser = localStorage.getItem("email");
         console.log(currentUser);
-        if(currentUser){
+        if (currentUser) {
             navigate(path);
-        }else{
-            window.alert("Please Log in First")
+        } else {
+            window.alert("Please Log in First");
             navigate(PATH.signup);
         }
     };
@@ -37,76 +37,42 @@ export const Header = () => {
             <div className={styles.buttonsWrapper}>
                 <Button
                     className={
-                        location.pathname === PATH.home ? styles.activeButton : styles.button
+                        location.pathname === PATH.news ? styles.activeButton : styles.button
                     }
                     variant="primary"
-                    text="Main"
+                    text="Новости"
                     onClick={() => handleNavigation(PATH.home)}
                     width="180px"
                     height="60px"
                     padding="0 40px"
+                    variantText="h6"
                 />
                 <Button
                     className={
-                        location.pathname === PATH.landmarks ? styles.activeButton : styles.button
+                        location.pathname === PATH.home ? styles.activeButton : styles.button
                     }
                     variant="primary"
-                    text="Landmarks"
-                    onClick={() => handleNavigation(PATH.landmarks)}
+                    text="Главная"
+                    onClick={() => handleNavigation(PATH.home)}
                     width="180px"
                     height="60px"
                     padding="0 40px"
+                    variantText="h6"
                 />
                 <Button
                     className={
                         location.pathname === PATH.tours ? styles.activeButton : styles.button
                     }
                     variant="primary"
-                    text="Tours"
+                    text="Туры"
                     onClick={() => handleNavigation(PATH.tours)}
                     width="180px"
                     height="60px"
                     padding="0 40px"
-                />
-                <Button
-                    className={
-                        location.pathname === PATH.bookings ? styles.activeButton : styles.button
-                    }
-                    variant="primary"
-                    text="My&nbsp;Journey"
-                    onClick={() => handleMyTour(PATH.bookings)}
-                    width="180px"
-                    height="60px"
-                    padding="0 40px"
+                    variantText="h6"
                 />
             </div>
-            {localStorage.getItem("email") ? (
-                <Button
-                    variant="secondary"
-                    text="Log Out"
-                    onClick={() => {
-                        localStorage.removeItem("email");
-                        window.alert("You have been logged out.");
-                        handleNavigation(PATH.home);
-                    }}
-                    width="160px"
-                    height="60px"
-                    padding="0 40px"
-                    className={styles.buttonLogout}
-                />
-            ) : (
-                <Button
-                    variant="secondary"
-                    text="Log In/Sign Up"
-                    onClick={() => handleNavigation(PATH.signup)}
-                    width="240px"
-                    height="60px"
-                    padding="0 40px"
-                    className={styles.buttonAuth}
-                >
-                    <ArrowIcon color="var(--black)" width="20px" />
-                </Button>
-            )}
+            <Typography variant="h6">Test User</Typography>
         </div>
     );
 };

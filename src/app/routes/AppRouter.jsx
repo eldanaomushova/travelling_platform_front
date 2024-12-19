@@ -6,8 +6,9 @@ import { HomePage } from "@pages/homePage/HomePage";
 import { Login } from "@modules/authModule/login/components/Login";
 import { TourPage } from "@pages/tourPage/TourPage";
 import { LandmarkPage } from "@pages/landmarkPage/LandmarkPage";
-import { AboutPlacePage } from "@pages/aboutPlacePage/AboutPlacePage";
 import { BookingsPage } from "@pages/bookingsPage/BookingsPage";
+import { TourDetailsPage } from "@pages/tourDetailsPage/TourDetailsPage";
+import { MyToursPage } from "@pages/myToursPage/MyToursPage";
 
 export const AppRouter = (user) => {
     return createBrowserRouter([
@@ -29,10 +30,6 @@ export const AppRouter = (user) => {
                     element: <LandmarkPage />,
                 },
                 {
-                    path: `${PATH.landmarks}/:id`,
-                    element: <AboutPlacePage />,
-                },
-                {
                     path: PATH.bookings,
                     element: <BookingsPage />,
                 },
@@ -41,6 +38,14 @@ export const AppRouter = (user) => {
                     element: <div>Not Found!</div>,
                 },
             ],
+        },
+        {
+            path: `${PATH.tours}/:id`,
+            element: <TourDetailsPage />,
+        },
+        {
+            path: PATH.mytours,
+            element: <MyToursPage />,
         },
         {
             path: PATH.signup,

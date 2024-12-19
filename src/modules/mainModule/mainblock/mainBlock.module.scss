@@ -8,10 +8,9 @@
         max-width: 1000px;
     }
     .text {
-        width: 250px;
+        width: 180px;
         margin-top: 30px;
     }
-
     .image {
         background-size: cover;
         background-position: center;
@@ -19,12 +18,23 @@
         background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
-        height: 305px;
-        position: relative;
-    }
-    .buttonPrimary {
+        height: 435px;
+        margin-top: 30px;
+        width: 100vw;
+        margin: 0;
+        left: 0;
+        right: 0;
         position: absolute;
-        top: 75%;
-        left: 5%;
+        margin-top: 30px;
+        .buttonPrimary {
+            position: absolute;
+            top: 75%;
+            left: 2.5%;
+        }
+        .chatButton {
+            position: absolute;
+            top: 75%;
+            right: 3.5%;
+        }
     }
 }

@@ -8,7 +8,6 @@
 @font-face {
     font-family: "Product-Sans";
     src: url("../../assets/fonts/productsans.ttf") format("truetype");
-    font-weight: normal;
     font-style: normal;
 }
 
@@ -19,11 +18,13 @@ h1 {
     font-family: $font-family-gora;
     font-size: 82px;
     cursor: default;
+    font-weight: 300;
 }
 h1.small {
     font-family: $font-family-gora;
-    font-size: 75px;
+    font-size: 64px;
     cursor: default;
+    line-height: 120%;
 }
 h2 {
     font-family: $font-family-gora;
@@ -32,21 +33,26 @@ h2 {
 }
 h3 {
     font-family: $font-family-productSans;
-    font-size: 66px;
+    font-size: 50px;
     cursor: default;
+    font-weight: 100;
 }
 h4 {
     font-family: $font-family-productSans;
-    font-size: 54px;
+    font-size: 34px;
+    font-weight: 300;
 }
 h5 {
     font-family: $font-family-productSans;
-    font-size: 42px;
+    font-size: 38px;
+    font-weight: 300;
 }
 h6 {
     font-family: $font-family-productSans;
-    font-size: 36px;
+    font-size: 28px;
+    font-weight: 300;
 }
+
 p {
     font-family: $font-family-productSans;
     font-size: 20px;
@@ -54,5 +60,5 @@ p {
 }
 p.extraSmall {
     font-family: $font-family-productSans;
-    font-size: 16px;
+    font-size: 14px;
 }

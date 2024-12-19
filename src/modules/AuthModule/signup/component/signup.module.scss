@@ -12,7 +12,10 @@
         .inputContainer {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 15px;
+            .input {
+                width: 600px;
+            }
             .separatorContainer {
                 display: flex;
                 align-items: center;
@@ -29,7 +32,7 @@
                 }
             }
             .alreadyBtn {
-                margin: 10px auto;
+                margin: 46px auto;
             }
         }
     }

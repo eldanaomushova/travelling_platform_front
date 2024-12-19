@@ -1,5 +1,5 @@
 .cardWrapper {
-    max-width: 460px;
+    max-width: 454px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@
     border: solid 2px var(--black);
     background-color: var(--white);
     margin-top: 100px;
-    border-radius: 30px;
+    border-radius: 32px;
     .imageWrapper {
         overflow: hidden;
         display: flex;
@@ -20,12 +20,12 @@
     .imageClass {
         width: 100%;
         flex-grow: 0;
-        height: max-content;
+        height: 700px;
     }
     .textWrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
+        padding: 20px 10px;
     }
 }

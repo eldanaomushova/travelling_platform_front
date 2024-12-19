@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./button.module.scss";
 import { Typography } from "@ui/typography/Typography";
 
@@ -13,6 +12,7 @@ export const Button = ({
     height,
     padding,
     className,
+    variantText,
 }) => {
     const buttonClasses = `${styles.button} ${styles[variant] || ""} ${
         disabled ? styles.disabled : ""
@@ -26,7 +26,7 @@ export const Button = ({
             style={{ width, height, padding }}
         >
             <div className={styles.buttonContent}>
-                <Typography variant="p" weight="small" className={styles.buttonText}>
+                <Typography variant={variantText} className={styles.buttonText}>
                     {text}
                 </Typography>
                 {icon && variant === "icon" && (
@@ -35,7 +35,9 @@ export const Button = ({
                     </div>
                 )}
             </div>
-            {children}
+            <Typography variant={variantText} className={styles.childrenText}>
+                {children}
+            </Typography>
         </button>
     );
 };

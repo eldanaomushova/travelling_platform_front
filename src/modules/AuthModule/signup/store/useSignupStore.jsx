@@ -2,24 +2,24 @@ import { PATH } from "@utils/constants/Constants";
 import { create } from "zustand";
 
 const ENDPOINTS = {
-    signup: "http://localhost:8080/trusted/auth/sign-up",
+    signup: "https://alaia-tours.up.railway.app/api/v1/auth/sign-up",
 };
 
 export const useSignupStore = create((set) => ({
     data: null,
     error: null,
 
-    register: async (email, password, navigate) => {
+    register: async (email, password, username, navigate) => {
         try {
             const response = await fetch(ENDPOINTS.signup, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ username, email, password, role }),
             });
 
-            if (response.status === 409) {
+            if (response.status === 200) {
                 navigate(PATH.login);
                 return;
             }

@@ -1,0 +1,57 @@
+.reviewContainer {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    .reviewTextWrapper {
+        width: 600px;
+        .reviewText {
+            width: 430px;
+        }
+    }
+    .reviewFindTicketWrapper {
+        width: 800px;
+        .cards {
+            display: flex;
+            gap: 30px;
+
+            .card {
+                width: 136px;
+                height: 166px;
+                border: 2px solid var(--black);
+                border-radius: 34px;
+                background-color: var(--gray);
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                align-items: center;
+                flex-direction: column;
+            }
+            .clickedCard {
+                background-color: var(--button-secondary);
+                color: var(--white);
+            }
+        }
+        .fieldsWraper {
+            margin-top: 30px;
+            .input1 {
+                width: 100%;
+                border-radius: 12px 12px 0 0;
+            }
+            .input2 {
+                width: 100%;
+                border-radius: 0;
+            }
+            .input3 {
+                width: 100%;
+                border-radius: 0 0 12px 12px;
+                margin-bottom: 24px;
+            }
+            .inputQuantity {
+                width: 100%;
+            }
+            .buttonFind {
+                margin-top: 24px;
+            }
+        }
+    }
+}

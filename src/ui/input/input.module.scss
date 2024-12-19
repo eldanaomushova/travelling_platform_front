@@ -1,18 +1,36 @@
 .inputContainer {
     position: relative;
+    display: flex;
+    align-items: center;
+    .icon {
+        position: absolute;
+        left: 20px;
+        margin: auto 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 600px;
+    }
+    &.hasIcon {
+        input {
+            padding-left: 60px;
+        }
+        .placeholder {
+            left: 60px;
+        }
+    }
 
     input {
         height: 60px;
-        min-width: 600px;
         align-self: stretch;
         flex-grow: 0;
         display: flex;
         padding: 10px 10px 10px 40px;
         border: none;
         border-bottom: solid 2px var(--black);
+        border-radius: 14px;
         background-color: var(--input-background);
         font-family: "Product-sans", sans-serif;
-        font-size: 24px;
+        font-size: 28px;
 
         &:focus {
             outline: none;
@@ -27,6 +45,7 @@
         color: var(--black);
         pointer-events: none;
         transition: opacity 0.2s ease-in-out;
+        font-size: 28px;
     }
     .error {
         background-color: var(--input-error) !important;

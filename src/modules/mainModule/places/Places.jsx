@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import styles from "./places.module.scss";
 import { useNavigate } from "react-router-dom";
 import { Typography } from "@ui/typography/Typography";
-import { Container } from "@ui/container/Container";
 import { LandCard } from "@ui/cards/landCard/LandCard";
 import { useLandmarkStore } from "@modules/landmarkComponent/store/useLandmarkStore";
 import { PATH } from "@utils/constants/Constants";
@@ -18,32 +17,30 @@ export const Places = () => {
     const places = data || [];
 
     return (
-        <Container>
+        <div className={styles.placesContainer}>
             <div className={styles.titleWrapper}>
-                <Typography variant="h1" className={styles.title}>
-                    {"HAVE YOU EVEN BEEN HERE?".toUpperCase()}
+                <Typography variant="h1" weight="small" className={styles.title}>
+                    А ВЫ ТУТ БЫЛИ?
                 </Typography>
             </div>
             <div className={styles.cardsWrapper}>
-                {places.length > 0 ? (
-                    places
-                        .slice(0, 3)
-                        .map(({ id, title, description, location, price, imageUrl }) => (
-                            <LandCard
-                                key={id}
-                                id={id}
-                                imageUrl={imageUrl}
-                                title={title}
-                                description={description}
-                                location={location}
-                                price={price}
-                                onClick={() => navigate(PATH.landmarks)}
-                            />
-                        ))
-                ) : (
-                    <Typography variant="p">No places available.</Typography>
-                )}
+                {places.slice(0, 3).map((place, index) => {
+                    const cardType = index === 0 ? "first" : index === 1 ? "second" : "third";
+                    return (
+                        <LandCard
+                            key={place.id}
+                            id={place.id}
+                            imageUrl={place.imageUrl}
+                            title={place.title}
+                            description={place.description}
+                            location={place.location}
+                            price={place.price}
+                            onClick={() => navigate(PATH.landmarks)}
+                            type={cardType}
+                        />
+                    );
+                })}
             </div>
-        </Container>
+        </div>
     );
 };
