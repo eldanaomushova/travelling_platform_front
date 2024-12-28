@@ -2,13 +2,13 @@ import { createBrowserRouter } from "react-router-dom";
 import { PATH } from "@utils/constants/Constants";
 import { Layout } from "@app/layout/Layout";
 import { HomePage } from "@pages/homePage/HomePage";
-import { Login } from "@modules/authModule/login/components/Login";
 import { TourPage } from "@pages/tourPage/TourPage";
 import { LandmarkPage } from "@pages/landmarkPage/LandmarkPage";
 import { BookingsPage } from "@pages/bookingsPage/BookingsPage";
 import { TourDetailsPage } from "@pages/tourDetailsPage/TourDetailsPage";
 import { MyToursPage } from "@pages/myToursPage/MyToursPage";
 import { SignUp } from "@modules/authModule/sign/components/Sign";
+import { Login } from "@modules/authModule/login/components/Login";
 
 export const AppRouter = (user) => {
     return createBrowserRouter([
