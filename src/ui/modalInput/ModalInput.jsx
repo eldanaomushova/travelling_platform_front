@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./ModalInput.module.scss";
+import styles from "./modalInput.module.scss";
 import { Button } from "@ui/buttons/Button";
 
 export const ModalInput = ({ isOpen, onClose, onSubmit }) => {
