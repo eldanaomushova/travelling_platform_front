@@ -4,7 +4,7 @@ import { signInWithPopup } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "@assets/logo/logo.webp";
-import styles from "../../signup/components/signup.module.scss";
+import styles from "../../sign/components/signup.module.scss";
 import { PATH } from "@utils/constants/Constants";
 import signupPhoto from "@assets/images/signupImg.jpeg";
 import { Typography } from "@ui/typography/Typography";
