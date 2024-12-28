@@ -12,6 +12,7 @@ export default defineConfig({
             "@ui": "/src/ui",
             "@app": "/src/app",
             "@stores": "/src/stores",
+            "@styles": "/src/styles",
         },
     },
     build: {
