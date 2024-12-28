@@ -7,8 +7,8 @@ import { LandmarkPage } from "@pages/landmarkPage/LandmarkPage";
 import { BookingsPage } from "@pages/bookingsPage/BookingsPage";
 import { TourDetailsPage } from "@pages/tourDetailsPage/TourDetailsPage";
 import { MyToursPage } from "@pages/myToursPage/MyToursPage";
-import { SignUp } from "@modules/authModule/sign/components/Sign";
-import { Login } from "@modules/authModule/login/components/Login";
+import { SignUp } from "@modules/auth/sign/components/Sign";
+import { Login } from "@modules/auth/login/components/Login";
 
 export const AppRouter = (user) => {
     return createBrowserRouter([
