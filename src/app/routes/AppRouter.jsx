@@ -8,7 +8,7 @@ import { LandmarkPage } from "@pages/landmarkPage/LandmarkPage";
 import { BookingsPage } from "@pages/bookingsPage/BookingsPage";
 import { TourDetailsPage } from "@pages/tourDetailsPage/TourDetailsPage";
 import { MyToursPage } from "@pages/myToursPage/MyToursPage";
-import { Signup } from "@modules/authModule/signup/components/Signup";
+import { SignUp } from "@modules/authModule/signup/components/Signup";
 
 export const AppRouter = (user) => {
     return createBrowserRouter([
@@ -49,7 +49,7 @@ export const AppRouter = (user) => {
         },
         {
             path: PATH.signup,
-            element: <Signup />,
+            element: <SignUp />,
         },
         {
             path: PATH.login,

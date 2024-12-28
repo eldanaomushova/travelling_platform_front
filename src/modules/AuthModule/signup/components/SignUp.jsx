@@ -14,7 +14,7 @@ import { ArrowIcon } from "@assets/icons/desktop/ArrowIcon";
 import { GoogleIcon } from "@assets/icons/desktop/GoogleIcon";
 import { useSignupStore } from "../store/useSignupStore";
 
-export const Signup = () => {
+export const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
