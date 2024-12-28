@@ -12,9 +12,9 @@ export const ActivityTourIcon = ({ className, width = "70px", height = "70px", o
             <path
                 d="M10 49.9999H27.7778L41.1111 85.5555L58.8889 14.4443L72.2222 49.9999H90"
                 stroke="#25D75A"
-                stroke-width="8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
         </svg>
     );

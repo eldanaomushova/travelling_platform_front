@@ -37,6 +37,7 @@ export const TourComponent = () => {
         }
     }, [searchTerm, data]);
     const handleClick = (id, planName, startDate, endDate, price, landmarks) => {
+        console.log(id);
         navigate(`${PATH.tours}/:id`, {
             state: { id, planName, startDate, endDate, price, landmarks },
         });

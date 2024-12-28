@@ -36,6 +36,19 @@
                 margin-right: 30px;
             }
         }
+        .programList {
+            .programItem {
+                padding: 10px 0;
+                border-bottom: 2px solid var(--black);
+                &:first-child {
+                    border-top: 2px solid var(--black);
+                }
+                .dayNumber {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
         .descriptionDiv {
             border-top: 2px solid var(--black);
             border-bottom: 2px solid var(--black);
@@ -61,87 +74,6 @@
             .arrowIcon {
                 margin: auto 0;
             }
-        }
-    }
-}
-
-.details {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-
-    h2 {
-        color: var(--primary-dark);
-        margin-bottom: 10px;
-        margin-top: 20px;
-    }
-
-    p {
-        color: var(--text-secondary);
-        line-height: 1.5;
-    }
-
-    h6 {
-        color: var(--text-primary);
-    }
-}
-
-.landmarks {
-    margin-top: 20px;
-    padding: 20px;
-    background: var(--light-blue);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-    h6 {
-        margin-bottom: 15px;
-        color: var(--primary-dark);
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        li {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            margin-bottom: 15px;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-
-            p {
-                color: var(--text-secondary);
-                line-height: 1.4;
-            }
-        }
-    }
-}
-
-.buttonPrimary {
-    margin-top: 20px;
-    align-self: flex-end;
-    width: fit-content;
-    height: auto;
-
-    button {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 20px;
-        border-radius: 8px;
-        background: var(--primary);
-        color: white;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-
-        &:hover {
-            background: var(--primary-dark);
         }
     }
 }

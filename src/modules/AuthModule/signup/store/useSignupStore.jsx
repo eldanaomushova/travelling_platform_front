@@ -16,26 +16,26 @@ export const useSignupStore = create((set) => ({
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ username, email, password, role }),
+                body: JSON.stringify({ username, email, password, role: "USER" }),
             });
-
-            if (response.status === 200) {
-                navigate(PATH.login);
-                return;
-            }
 
             if (!response.ok) {
                 const errorData = await response.json();
                 set({ error: errorData });
                 throw new Error("Registration failed");
             }
-            if (response.ok) {
-                navigate(PATH.home);
-                return { email, password };
-            }
 
             const data = await response.json();
+            if (data?.token) {
+                localStorage.setItem("token", data.token);
+            }
             set({ data, error: null });
+            if (response.status === 200) {
+                navigate(PATH.login);
+            } else {
+                navigate(PATH.home);
+            }
+
             return data;
         } catch (error) {
             set({ error: error.message || "Registration failed" });

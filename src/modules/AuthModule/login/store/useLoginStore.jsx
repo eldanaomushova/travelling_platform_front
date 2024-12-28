@@ -22,16 +22,17 @@ export const useLoginStore = create((set) => ({
             if (response.ok) {
                 const data = await response.json();
                 set({ data, error: null, token: data.token });
-                localStorage.setItem("authToken", data.token);
+                localStorage.setItem("token", data.token);
                 localStorage.setItem("email", data.email);
+
                 return data;
             } else if (response.status === 401) {
                 const errorData = await response.json();
-                window.alert(errorData.message || "Please verify your account.");
-                throw new Error(errorData.message || "Account not verified.");
+                set({ error: errorData.message || "Account not verified" });
+                throw new Error(errorData.message || "Account not verified");
             } else {
                 const errorData = await response.json();
-                set({ error: errorData });
+                set({ error: errorData.message || "Login failed" });
                 throw new Error(errorData.message || "Login failed");
             }
         } catch (error) {
@@ -42,15 +43,15 @@ export const useLoginStore = create((set) => ({
 
     logout: () => {
         set({ data: null, token: null, error: null });
-        localStorage.removeItem("authToken");
+        localStorage.removeItem("token");
         localStorage.removeItem("email");
     },
 
     initializeToken: () => {
-        const storedToken = localStorage.getItem("authToken");
+        const storedToken = localStorage.getItem("token");
         const storedEmail = localStorage.getItem("email");
         if (storedToken) {
-            set({ token: storedToken, data: { email: storedEmail } });
+            set({ token: storedToken, data: { email: storedEmail }, error: null });
         }
     },
 }));

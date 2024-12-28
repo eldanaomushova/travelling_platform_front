@@ -72,7 +72,9 @@ export const Header = () => {
                     variantText="h6"
                 />
             </div>
-            <Typography variant="h6">Test User</Typography>
+            <Typography variant="h6" onClick={() => handleNavigation(PATH.signup)}>
+                Регистрация
+            </Typography>
         </div>
     );
 };

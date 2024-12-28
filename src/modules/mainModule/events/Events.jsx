@@ -16,6 +16,7 @@ export const Events = () => {
     useEffect(() => {
         fetchData();
     }, [fetchData]);
+    console.log(data);
     if (!data || data.length === 0) {
         return;
     }
